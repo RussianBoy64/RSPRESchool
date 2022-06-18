@@ -1,0 +1,19 @@
+/* Подключаем шрифты */
+@import url('https://fonts.googleapis.com/css2?family=Aleo:ital,wght@0,400;0,700;1,400;1,700&family=Magra:wght@700&family=Red+Hat+Text:wght@400;500&display=swap');
+
+:root {
+  --hue: 189;
+
+  --color-primary: hsl(var(--hue), 79%, 100%);
+  --color-secondary: hsl(var(--hue), 79%, 24%);
+  --color-accent: hsl(11, 85%, 65%);
+
+  --bg-color: #ffffff;
+}
+
+body {
+  font-family: 'Aleo', serif;
+  font-size: 20px;
+  font-weight: 400;
+  background-color: var(--bg-color);
+}

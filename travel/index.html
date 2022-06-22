@@ -38,14 +38,14 @@
                 <a href="#preview" class="nav__link">Plan your trip</a>
               </li>
               <li class="nav__item">
-                <a href="" class="nav__link">Destinations</a>
+                <a href="#destinations" class="nav__link">Destinations</a>
               </li>
               <li class="nav__item">
                 <a href="" class="nav__link">Travel stories</a>
               </li>
             </ul>
           </nav>
-          <button class="btn btn_header">Login</button>
+          <button class="btn header__btn">Login</button>
         </div>
       </div>
     </header>
@@ -61,7 +61,11 @@
             <form action="#" class="form row">
               <input type="text" name="search" id="text-input" />
               <label for="text-input">What would you like to do?</label>
-              <input class="btn search" type="submit" value="Start Planning" />
+              <input
+                class="btn search__btn"
+                type="submit"
+                value="Start Planning"
+              />
             </form>
           </div>
         </div>
@@ -124,8 +128,41 @@
           </ul>
         </div>
       </section>
-      <section class="destinations">
-        <div class="container"></div>
+      <section class="destinations" id="destinations">
+        <div class="container">
+          <h2 class="section__title">Popular destinations</h2>
+          <div class="carousel row">
+            <div class="carousel__item">
+              <img
+                src="assets/img/destinations-spain-800x800.jpg"
+                alt="Spain"
+                class="carousel-item__img"
+              /><span class="carousel-item__name">Spain</span>
+            </div>
+            <div class="carousel__item">
+              <img
+                src="assets/img/destinations-japan-800x800.jpg"
+                alt="Japan"
+                class="carousel-item__img"
+              /><span class="carousel-item__name">Japan</span>
+            </div>
+            <div class="carousel__item">
+              <img
+                src="assets/img/destinations-usa-800x800.jpg"
+                alt="USA"
+                class="carousel-item__img"
+              /><span class="carousel-item__name">Usa</span>
+            </div>
+          </div>
+          <div class="carousel-pagination row">
+            <div class="carousel-pagination__item"></div>
+            <div
+              class="carousel-pagination__item carousel-pagination__item_active"
+            ></div>
+            <div class="carousel-pagination__item"></div>
+          </div>
+          <button class="btn destinations__btn">Find more</button>
+        </div>
       </section>
       <section class="stories">
         <div class="container"></div>

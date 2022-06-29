@@ -104,10 +104,9 @@ body {
 
 .nav {
   font-family: 'Red Hat Text';
-  font-weight: 500;
+  font-weight: 700;
   font-size: 16px;
   line-height: 21px;
-  letter-spacing: 0.5;
 }
 
 .nav__list {

@@ -107,10 +107,12 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 21px;
+  letter-spacing: 0.5;
 }
 
 .nav__list {
   justify-content: flex-start;
+  gap: 7px;
   width: 600px;
 }
 

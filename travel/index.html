@@ -184,6 +184,14 @@
               <span class="carousel-item__name">Usa</span>
             </div>
           </div>
+          <div class="carousel-arrows">
+            <svg class="disabled" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.0757 26.9325C20.4272 26.5809 20.6246 26.1041 20.6246 25.6069C20.6246 25.1097 20.4272 24.6329 20.0757 24.2813L10.7944 15L20.0757 5.71875C20.4172 5.36512 20.6062 4.89149 20.6019 4.39987C20.5976 3.90825 20.4005 3.43798 20.0528 3.09034C19.7052 2.7427 19.2349 2.54551 18.7433 2.54124C18.2517 2.53696 17.778 2.72595 17.4244 3.0675L6.81753 13.6744C6.46602 14.026 6.26855 14.5028 6.26855 15C6.26855 15.4972 6.46602 15.974 6.81753 16.3256L17.4244 26.9325C17.776 27.284 18.2528 27.4815 18.75 27.4815C19.2472 27.4815 19.724 27.284 20.0757 26.9325Z"/>
+            </svg>
+            <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.0757 26.9325C20.4272 26.5809 20.6246 26.1041 20.6246 25.6069C20.6246 25.1097 20.4272 24.6329 20.0757 24.2813L10.7944 15L20.0757 5.71875C20.4172 5.36512 20.6062 4.89149 20.6019 4.39987C20.5976 3.90825 20.4005 3.43798 20.0528 3.09034C19.7052 2.7427 19.2349 2.54551 18.7433 2.54124C18.2517 2.53696 17.778 2.72595 17.4244 3.0675L6.81753 13.6744C6.46602 14.026 6.26855 14.5028 6.26855 15C6.26855 15.4972 6.46602 15.974 6.81753 16.3256L17.4244 26.9325C17.776 27.284 18.2528 27.4815 18.75 27.4815C19.2472 27.4815 19.724 27.284 20.0757 26.9325Z"/>
+            </svg>
+          </div>
           <div class="carousel-pagination row">
             <div class="carousel-pagination__item carousel-pagination__item_active"></div>
             <div
@@ -207,10 +215,9 @@
                 <img
                 src="assets/img/stories-thailand-400x250.jpg"
                 alt="Thailand"
-              />
-              </picture>
+                />
+                </picture>
               </div>
-              
               <div class="stories-item__body">
                 <h3 class="stories-item__title">
                   10 Photos of Attractive Thailand
@@ -221,20 +228,24 @@
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                   irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  dolore eu fugiat nulla<span class="description__mobile-text"> pariatur</span>.<span class="description__mobile-text"> Excepteur sint occaecat
                   cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit...<br />
+                  mollit anim id est laborum.</span>Lorem ipsum dolor sit a<span class="description__mobile-text">met,
+                  consectetur adipiscing elit</span>...<br />
                   <a href="#stories" class="stories-item__link">Read more</a>
                 </p>
               </div>
             </article>
             <article class="stories__stories-item row">
-              <img
-                src="assets/img/stories-canyon-400x250.jpg"
-                alt="Canyonlands National Park"
-                class="stories-item__img"
-              />
+              <div class="stories-item__img">
+                <picture>
+                  <source media="(max-width:391px)" srcset="assets/img/stories-canyon-155x130.jpg">
+                  <img
+                  src="assets/img/stories-canyon-400x250.jpg"
+                  alt="Canyonlands National Park"
+                  class="stories-item__img"/>
+                </picture>
+              </div>
               <div class="stories-item__body">
                 <h3 class="stories-item__title">
                   Canyonlands National Park, Utah
@@ -245,20 +256,25 @@
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                   irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  dolore eu fugiat nulla<span class="description__mobile-text"> pariatur</span>.<span class="description__mobile-text"> Excepteur sint occaecat
                   cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit...<br />
+                  mollit anim id est laborum.</span>Lorem ipsum dolor sit a<span class="description__mobile-text">met,
+                  consectetur adipiscing elit</span>...<br />
                   <a href="#stories" class="stories-item__link">Read more</a>
                 </p>
               </div>
             </article>
             <article class="stories__stories-item row">
-              <img
-                src="assets/img/stories-mountains-400x250.jpg"
-                alt="Mountains"
-                class="stories-item__img"
-              />
+              <div class="stories-item__img">
+                <picture>
+                  <source media="(max-width:391px)" srcset="assets/img/stories-mountains-155x130.jpg">
+                  <img
+                    src="assets/img/stories-mountains-400x250.jpg"
+                    alt="Mountains"
+                    class="stories-item__img"
+                  />
+                </picture>
+              </div>
               <div class="stories-item__body">
                 <h3 class="stories-item__title">
                   I left my heart in the Mountains!
@@ -269,20 +285,25 @@
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                   irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  dolore eu fugiat nulla<span class="description__mobile-text"> pariatur</span>.<span class="description__mobile-text"> Excepteur sint occaecat
                   cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit... <br />
+                  mollit anim id est laborum.</span> Lorem ipsum dolor sit a<span class="description__mobile-text">met,
+                  consectetur adipiscing elit</span>...<br />
                   <a href="#stories" class="stories-item__link">Read more</a>
                 </p>
               </div>
             </article>
             <article class="stories__stories-item row">
-              <img
-                src="assets/img/stories-journey-400x250.jpg"
-                alt="Journey"
-                class="stories-item__img"
-              />
+              <div class="stories-item__img">
+                <picture>
+                  <source media="(max-width:391px)" srcset="assets/img/stories-journey-155x130.jpg">
+                  <img
+                    src="assets/img/stories-journey-400x250.jpg"
+                    alt="Journey"
+                    class="stories-item__img"
+                  />
+                </picture>
+              </div>
               <div class="stories-item__body">
                 <h3 class="stories-item__title">
                   The Longest journey in my life!
@@ -293,10 +314,10 @@
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
                   laboris nisi ut aliquip ex ea commodo consequat. Duis aute
                   irure dolor in reprehenderit in voluptate velit esse cillum
-                  dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                  dolore eu fugiat nulla<span class="description__mobile-text"> pariatur</span>.<span class="description__mobile-text"> Excepteur sint occaecat
                   cupidatat non proident, sunt in culpa qui officia deserunt
-                  mollit anim id est laborum.Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit... <br /><a
+                  mollit anim id est laborum.</span>Lorem ipsum dolor sit a<span class="description__mobile-text">met,
+                  consectetur adipiscing elit</span>...<br /><a
                     href="#stories"
                     class="stories-item__link"
                     >Read more</a

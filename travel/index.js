@@ -1,3 +1,22 @@
+const burgerOpenBtn = document.querySelector('.burger-menu')
+const burgerCloseBtn = document.querySelector('.burger-close')
+const navigation = document.querySelector('.nav')
+
+burgerOpenBtn.addEventListener('click', () => {
+  navigation.classList.add('open')
+})
+
+burgerCloseBtn.addEventListener('click', () => {
+  navigation.classList.remove('open')
+})
+
+navigation.addEventListener('click', (event) => {
+  console.log(event.target)
+  if (event.target.classList.contains('nav__link')) {
+    navigation.classList.remove('open')
+  }
+})
+
 console.log(`Итоговая оценка 110/110
 
 1. Верстка валидная +10

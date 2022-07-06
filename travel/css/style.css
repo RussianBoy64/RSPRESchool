@@ -40,7 +40,7 @@ body {
   align-items: center;
 }
 
-.modile-link {
+.mobile-link {
   display: none;
 }
 
@@ -529,6 +529,7 @@ body {
   font-weight: 500;
   font-size: 16px;
   line-height: 21px;
+  text-align: center;
   transform: translate(-7px, 2px);
 }
 
@@ -596,6 +597,11 @@ body {
     padding: 0 70px;
   }
 
+  .carousel__item {
+    width: 500px;
+    height: 500px;
+  }
+
   .stories__list {
     gap: 20px;
   }
@@ -619,7 +625,6 @@ body {
   .nav__list {
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px;
     width: auto;
   }
 
@@ -628,7 +633,7 @@ body {
   }
 }
 
-@media (max-width: 769px) {
+@media (max-width: 785px) {
   .container {
     padding: 0 30px;
   }
@@ -649,173 +654,19 @@ body {
     padding: 9px;
   }
 
-  .stories-item__description {
-    font-size: 12px;
-    line-height: 20px;
-  }
-
-  .stories__btn {
-    margin: -5px 0 5px;
-    padding: 5px 11px;
-  }
-
-  .copyright {
-    font-size: 10px;
-    line-height: 10px;
-  }
-}
-
-@media (max-width: 391px) {
-  .container {
-    padding: 0 15px;
-  }
-
-  .modile-link {
-    display: inline-block;
-  }
-
-  .btn {
-    font-size: 11px;
-    line-height: 15px;
-  }
-
-  /* ================= Header ===================== */
-
-  .header-container {
-    background-image: url(./../assets/img/preview-bg-390x251.jpg);
-  }
-
-  .header-container:before {
-    content: none;
-  }
-
-  .header-body {
-    padding-top: 30px;
-  }
-
-  .logo__name {
-    display: none;
-  }
-
-  .burger-close {
-    display: block;
-  }
-
-  .burger-menu {
-    display: block;
-  }
-
-  .nav {
-    display: none;
-    position: absolute;
-    top: 15px;
-    left: 0;
-    width: 165px;
-    height: 250px;
-    border-radius: 10px;
-    background: #f2785c;
-    box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
-  }
-
-  .nav__list {
-    justify-content: flex-end;
-    gap: 10px;
-  }
-
-  .nav__preview {
-    order: 2;
-  }
-
-  .nav__destinations {
-    order: 1;
-  }
-
-  .nav__stories {
-    order: 3;
-  }
-
-  .nav__account {
-    order: 4;
-  }
-
-  .nav__social {
-    order: 5;
-  }
-
-  .stories__list {
-    gap: 15px;
-  }
-
-  .nav__link {
-    padding: 10px 15px;
-  }
-
-  .header__btn {
-    display: none;
-  }
-
-  /* ================= Main ===================== */
-
-  /* ================= Preview ===================== */
-
-  .preview {
-    height: 161px;
-    background-image: url(../assets/img/preview-bg-390x251.jpg);
-  }
-
-  .preview__title,
-  .preview__text {
-    display: none;
-  }
-
-  .form {
-    margin-top: 20px;
-    height: 48px;
-  }
-
-  .form label,
-  .form input[type='text'] {
-    font-size: 14px;
-    line-height: 17px;
-  }
-
-  .form input[type='text'] {
-    padding-left: 0px;
-  }
-
-  .form label {
-    left: 0;
-    padding: 10px 17px;
-  }
-
-  .btn.search__btn {
-    padding: 5px 7px;
-  }
-
-  .stories-item__title {
-    font-size: 11px;
-    line-height: 13px;
-  }
-
-  .stories-item__description {
-    font-size: 9px;
-    line-height: 11px;
-  }
-
-  /* ================= Steps ===================== */
-
   .steps {
     margin-top: 20px;
   }
 
-  .section__title {
-    margin-bottom: 20px;
-    font-size: 14px;
-    line-height: 19px;
-  }
-
   .steps__item {
     width: 120px;
+  }
+
+  .steps__text {
+    margin: 21px 0px 19px;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
   }
 
   .steps__item:nth-child(2) svg,
@@ -854,11 +705,205 @@ body {
     height: 31px;
   }
 
-  .steps__text {
-    margin: 21px 0px 19px;
-    font-size: 10px;
-    font-weight: 400;
-    line-height: 12px;
+  .carousel {
+    gap: 30px;
+  }
+
+  .carousel__item {
+    zoom: 50%;
+  }
+
+  .stories__list {
+    height: 950px;
+  }
+
+  .stories-item__img {
+    min-width: 155px;
+  }
+
+  .stories-item__description {
+    font-size: 9px;
+    line-height: 11px;
+  }
+
+  .destinations__btn:before,
+  .stories__btn:before {
+    margin-right: 23px;
+    line-height: 11px;
+    zoom: 25%;
+  }
+
+  .stories__btn {
+    margin: -5px 0 5px;
+    padding: 5px 11px;
+  }
+
+  .footer-links {
+    zoom: 50%;
+  }
+
+  .copyright {
+    font-size: 8px;
+    line-height: 8px;
+  }
+}
+
+@media (max-width: 540px) {
+  .container {
+    padding: 0 15px;
+  }
+
+  .nav__link {
+    padding: 10px 15px;
+  }
+
+  .preview__title {
+    font-weight: 700;
+    font-size: 55px;
+    line-height: 66px;
+  }
+
+  .form {
+    margin-top: 20px;
+    height: 48px;
+  }
+
+  .form label,
+  .form input[type='text'] {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .form input[type='text'] {
+    padding-left: 0px;
+  }
+
+  .form label {
+    left: 0;
+    padding: 10px 17px;
+  }
+
+  .btn.search__btn {
+    padding: 5px 7px;
+  }
+
+  .stories-item__body {
+    padding: 0 0 0 10px;
+  }
+
+  .stories-item__title {
+    margin-top: 5px;
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
+
+@media (max-width: 391px) {
+  .mobile-link {
+    display: inline;
+  }
+
+  .btn {
+    font-size: 11px;
+    line-height: 15px;
+  }
+
+  /* ================= Header ===================== */
+
+  .header-container {
+    background-image: url(./../assets/img/preview-bg-390x251.jpg);
+  }
+
+  .header-container:before {
+    content: none;
+  }
+
+  .header-body {
+    padding-top: 30px;
+  }
+
+  .logo__name {
+    display: none;
+  }
+
+  .burger-close {
+    display: block;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+
+  .nav {
+    position: absolute;
+    top: 15px;
+    left: 0;
+    width: 165px;
+    height: 250px;
+    border-radius: 10px;
+    background: #f2785c;
+    box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+    transform: translateX(500px);
+    transition: all 0.3s ease;
+  }
+
+  .nav.open {
+    transform: translateX(190px);
+  }
+
+  .nav__list {
+    justify-content: flex-end;
+    gap: 10px;
+  }
+
+  .nav__preview {
+    order: 2;
+  }
+
+  .nav__destinations {
+    order: 1;
+  }
+
+  .nav__stories {
+    order: 3;
+  }
+
+  .nav__account {
+    order: 4;
+  }
+
+  .nav__social {
+    order: 5;
+  }
+
+  .stories__list {
+    gap: 15px;
+  }
+
+  .header__btn {
+    display: none;
+  }
+
+  /* ================= Main ===================== */
+
+  /* ================= Preview ===================== */
+
+  .preview {
+    height: 161px;
+    background-image: url(../assets/img/preview-bg-390x251.jpg);
+  }
+
+  .preview__title,
+  .preview__text {
+    display: none;
+  }
+
+  /* ================= Steps ===================== */
+
+  .section__title {
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 19px;
   }
 
   /* ================= Destinations =============== */
@@ -875,6 +920,7 @@ body {
   .carousel__item {
     max-width: calc(100vw - 30px);
     height: 210px;
+    zoom: 100%;
   }
 
   .carousel-item__name {
@@ -909,13 +955,6 @@ body {
     padding: 5px 10px;
   }
 
-  .destinations__btn:before,
-  .stories__btn:before {
-    margin-right: 23px;
-    line-height: 11px;
-    zoom: 25%;
-  }
-
   /* ================= Stories ===================== */
 
   .stories {
@@ -934,20 +973,6 @@ body {
   .stories__list {
     height: 617px;
     padding-top: 0px;
-  }
-
-  .stories-item__img {
-    min-width: 155px;
-  }
-
-  .stories-item__body {
-    padding: 0 0 0 10px;
-    font-size: 9px;
-    line-height: 11px;
-  }
-
-  .stories-item__title {
-    margin-top: 5px;
   }
 
   .description__mobile-text {

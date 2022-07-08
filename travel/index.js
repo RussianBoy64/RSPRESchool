@@ -1,13 +1,19 @@
 const burgerOpenBtn = document.querySelector('.burger-menu')
 const navigation = document.querySelector('.nav')
+const backdrop = document.querySelector('.backdrop')
+const body = document.querySelector('body')
 
 document.addEventListener('click', (event) => {
   let target = event.target
 
   if (target == burgerOpenBtn || event.path.includes(burgerOpenBtn)) {
     navigation.classList.add('open')
+    backdrop.classList.add('show')
+    body.classList.add('unscrollable')
   } else if (event.target != navigation) {
     navigation.classList.remove('open')
+    backdrop.classList.remove('show')
+    body.classList.remove('unscrollable')
   }
 })
 

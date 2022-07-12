@@ -92,6 +92,7 @@ body.unscrollable {
 
 .backdrop {
   position: absolute;
+  /* z-index: -1; */
   top: 0;
   left: 0;
   width: 100%;
@@ -102,6 +103,7 @@ body.unscrollable {
 }
 
 .backdrop.show {
+  z-index: 1;
   opacity: 1;
 }
 

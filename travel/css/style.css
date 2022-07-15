@@ -586,7 +586,9 @@ body.unscrollable {
   position: absolute;
   top: 50%;
   left: 50%;
-  padding: 23px 45px;
+  z-index: 10000;
+  padding: 25px 45px;
+  width: 100%;
   max-width: 650px;
   border-radius: 16px;
   background: linear-gradient(177.09deg, #ffffff 6.15%, #0d606f 202.69%);
@@ -631,9 +633,10 @@ body.unscrollable {
   background: #fff;
 }
 
-.pop-up__saparator {
+.pop-up__separator {
   position: relative;
   margin-top: 30px;
+  margin-bottom: 10px;
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
@@ -641,8 +644,8 @@ body.unscrollable {
   opacity: 0.5;
 }
 
-.pop-up__saparator:before,
-.pop-up__saparator:after {
+.pop-up__separator:before,
+.pop-up__separator:after {
   content: '';
   position: absolute;
   top: 50%;
@@ -652,12 +655,36 @@ body.unscrollable {
   transform: translateY(-50%);
 }
 
-.pop-up__saparator:before {
+.pop-up__separator:before {
   left: 0;
 }
 
-.pop-up__saparator:after {
+.pop-up__separator:after {
   right: 0;
+}
+
+.pop-up__form {
+  display: flex;
+  flex-direction: column;
+}
+
+.pop-up__form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.pop-up__form input {
+  display: block;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  height: 54px;
+  box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08),
+    inset 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border: none;
+  border-radius: 10px;
 }
 
 /* ================= Animation ===================== */

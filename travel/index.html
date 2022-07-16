@@ -415,8 +415,8 @@
       </div>
     </footer>
     <div class="pop-up">
-      <h4 class="pop-up__title">Log in to your account</h4>
-      <div class="sign-in-content">
+      <h4 class="pop-up__title"><span class="sign-in">Log in to your account</span><span class="sign-up">Create account</span></h4>
+      <div class="sign-in">
         <button class="btn pop-up__btn facebook-btn"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect width="24" height="24" transform="translate(0.5)"/>
         <path d="M24 12.0699C24 5.71857 18.8513 0.569853 12.5 0.569853C6.14872 0.569853 1 5.71857 1 12.0699C1 17.8098 5.20538 22.5674 10.7031 23.4301V15.3941H7.7832V12.0699H10.7031V9.53626C10.7031 6.65407 12.42 5.06204 15.0468 5.06204C16.305 5.06204 17.6211 5.28665 17.6211 5.28665V8.11673H16.171C14.7424 8.11673 14.2969 9.00319 14.2969 9.91264V12.0699H17.4863L16.9765 15.3941H14.2969V23.4301C19.7946 22.5674 24 17.8098 24 12.0699Z" fill="white"/>
@@ -434,15 +434,17 @@
       </div>
       <form action="#" class="from pop-up__form">
         <label for="pop-up__input-e-mail">E-mail</label>
-        <input type="text" name="e-mail" id="pop-up__input-e-,ail" />
+        <input type="text" name="e-mail" id="pop-up__input-e-mail" />
         <label for="pop-up__input-password">Password</label>
         <input type="text" name="password" id="pop-up__input-password" />
         <button
-                class="btn"
+                class="btn pop-up__btn pop-up__btn-submit"
                 type="submit"
-                value="Sign In"
+                value="submit"
               >Sign In</button>
       </form>
+      <a href="#" class="pop-up__forgot-password sign-in">Forgot your password?</a>
+      <p class="pop-up__account"><span class="sign-in">Don`t have an account?</span><span class="sign-up">Already have an account?</span> <a href="#">Register</a></p>
     </div>
     <div class="backdrop"></div>
     <script src="index.js"></script>

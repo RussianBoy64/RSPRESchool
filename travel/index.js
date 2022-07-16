@@ -1,20 +1,72 @@
 const burgerOpenBtn = document.querySelector('.burger-menu')
+const burgerCloseBtn = document.querySelector('.burger-close')
 const navigation = document.querySelector('.nav')
+const navLinks = document.querySelectorAll('.nav__link')
 const backdrop = document.querySelector('.backdrop')
 const body = document.querySelector('body')
 
-document.addEventListener('click', (event) => {
-  let target = event.target
+const accountBtns = document.querySelectorAll('.account-btn')
+const popUp = document.querySelector('.pop-up')
+const popUpToggleBtn = document.querySelector('.pop-up-toggle')
+const popUpForm = document.querySelector('.pop-up__form')
 
-  if (target == burgerOpenBtn || event.path.includes(burgerOpenBtn)) {
-    navigation.classList.add('open')
-    backdrop.classList.add('show')
-    body.classList.add('unscrollable')
-  } else if (event.target != navigation) {
+function backdropShow() {
+  backdrop.classList.add('show')
+  body.classList.add('unscrollable')
+}
+
+function backdropHide() {
+  backdrop.classList.remove('show')
+  body.classList.remove('unscrollable')
+}
+
+backdrop.addEventListener('click', (event) => {
+  if (event.target === backdrop) {
     navigation.classList.remove('open')
-    backdrop.classList.remove('show')
-    body.classList.remove('unscrollable')
+    popUp.classList.remove('show')
+    backdropHide()
   }
+})
+
+//================== Open burger menu
+burgerOpenBtn.addEventListener('click', () => {
+  navigation.classList.add('open')
+  backdropShow()
+})
+
+//================== Close burger menu
+burgerCloseBtn.addEventListener('click', () => {
+  navigation.classList.remove('open')
+  backdropHide()
+})
+
+navLinks.forEach((navLink) => {
+  navLink.addEventListener('click', () => {
+    navigation.classList.remove('open')
+    backdropHide()
+  })
+})
+
+//================== Open pop-up
+accountBtns.forEach((accountBtn) => {
+  accountBtn.addEventListener('click', () => {
+    popUp.classList.remove('sign-up')
+    popUp.classList.add('show')
+    backdropShow()
+  })
+})
+
+//================== Toggle pop-up content
+popUpToggleBtn.addEventListener('click', () => {
+  popUp.classList.toggle('sign-up')
+})
+
+//================== Alert input
+popUpForm.addEventListener('submit', (event) => {
+  event.preventDefault()
+  alert(`e-mail: ${popUpForm.mail.value}
+password: ${popUpForm.password.value}`)
+  popUpForm.reset()
 })
 
 console.log(`Итоговая оценка 75/75

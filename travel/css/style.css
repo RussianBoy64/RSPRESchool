@@ -90,23 +90,6 @@ body.unscrollable {
   fill: var(--color-dark);
 }
 
-.backdrop {
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.25);
-  opacity: 0;
-  transition: all 0.3s ease;
-}
-
-.backdrop.show {
-  z-index: 1;
-  opacity: 1;
-}
-
 /* ================= Header ===================== */
 
 .header {
@@ -126,7 +109,6 @@ body.unscrollable {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 100;
   width: 100%;
   height: 100%;
   background-color: hsla(11, 85%, 65%, 0.7);
@@ -135,7 +117,6 @@ body.unscrollable {
 
 .header-body {
   position: relative;
-  z-index: 2000;
   justify-content: space-between;
   width: 100%;
   height: 90px;
@@ -392,7 +373,13 @@ body.unscrollable {
   height: 20px;
   background-color: var(--color-accent);
   border-radius: 50%;
+  cursor: pointer;
   opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.carousel-pagination__item:hover {
+  opacity: 0.7;
 }
 
 .carousel-pagination__item_active {
@@ -438,7 +425,6 @@ body.unscrollable {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 100;
   width: 100%;
   height: 100%;
   background-color: var(--color-light);
@@ -447,7 +433,6 @@ body.unscrollable {
 
 .stories__list {
   position: relative;
-  z-index: 1000;
   flex-direction: column;
   gap: 30px;
   height: 1270px;
@@ -580,6 +565,197 @@ body.unscrollable {
   opacity: 0.8;
 }
 
+/* ================= UI ===================== */
+
+.backdrop {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  padding: 40px;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.backdrop.show {
+  z-index: 1;
+  opacity: 1;
+}
+
+.pop-up {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  z-index: 10000;
+  padding: 25px 45px;
+  width: 90%;
+  max-width: 650px;
+  border-radius: 16px;
+  background: linear-gradient(177.09deg, #ffffff 6.15%, #0d606f 202.69%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform: translate(-50%, -50%);
+  transition: all 300ms ease-in;
+}
+
+.pop-up.show {
+  top: 50%;
+}
+
+.pop-up .sign-up {
+  display: none;
+}
+
+.pop-up.sign-up .sign-in {
+  display: none;
+}
+
+.pop-up.sign-up .sign-up {
+  display: inline-block;
+}
+
+.pop-up__title {
+  margin-bottom: 30px;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 38px;
+  text-align: center;
+}
+
+.pop-up__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  padding: 15px;
+  width: 100%;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 26px;
+  text-transform: none;
+  border: none;
+  box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08),
+    0px 2px 3px rgba(13, 96, 111, 0.16);
+}
+
+.pop-up__btn-submit {
+  margin-top: 3px;
+}
+
+.pop-up__btn svg {
+  margin-right: 15px;
+}
+
+.facebook-btn {
+  background: #1877f2;
+}
+
+.google-btn {
+  color: var(--color-dark);
+  background: #fff;
+}
+
+.pop-up__separator {
+  position: relative;
+  margin-top: 30px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.pop-up__separator:before,
+.pop-up__separator:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 47%;
+  height: 1px;
+  background-color: var(--color-dark);
+  transform: translateY(-50%);
+}
+
+.pop-up__separator:before {
+  left: 0;
+}
+
+.pop-up__separator:after {
+  right: 0;
+}
+
+.pop-up__form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}
+
+.pop-up__form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.pop-up__form input {
+  display: block;
+  margin-bottom: 20px;
+  padding: 0 10px;
+  height: 54px;
+  box-shadow: inset 0px 0px 3px rgba(13, 96, 111, 0.08),
+    inset 0px 2px 3px rgba(13, 96, 111, 0.16);
+  border: none;
+  border-radius: 10px;
+}
+
+.pop-up__form input:focus {
+  outline: none;
+}
+
+.pop-up a {
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  text-decoration-line: underline;
+  text-shadow: 0px 2px 3px rgba(255, 255, 255, 0.16);
+  transition: all 0.3s ease;
+}
+
+.pop-up__forgot-password {
+  display: block;
+  margin: 10px;
+}
+
+.pop-up a:hover {
+  color: var(--color-accent);
+}
+
+.pop-up a:active {
+  opacity: 0.7;
+}
+
+.pop-up__account {
+  margin-top: 25px;
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  border-top: 1px solid rgba(13, 96, 111, 0.5);
+}
+
+.pop-up__account > span {
+  opacity: 0.5;
+}
+
+.pop-up-toggle span {
+  text-decoration-line: underline;
+}
+
 /* ================= Animation ===================== */
 
 @keyframes arrowMove {
@@ -598,6 +774,11 @@ body.unscrollable {
   100% {
     left: 0;
   }
+}
+
+.moveLeft,
+.moveRight {
+  transition: all 0.5s ease;
 }
 
 /* ================= Responsive ===================== */
@@ -731,7 +912,14 @@ body.unscrollable {
   }
 
   .carousel__item {
-    zoom: 50%;
+    width: 250px;
+    height: 250px;
+  }
+
+  .carousel-item__name {
+    bottom: 15px;
+    font-size: 20px;
+    line-height: 26px;
   }
 
   .stories__list {
@@ -817,6 +1005,29 @@ body.unscrollable {
     font-size: 11px;
     line-height: 13px;
   }
+
+  .pop-up {
+    padding: 20px;
+  }
+
+  .pop-up__title {
+    font-size: 24px;
+    line-height: 24px;
+  }
+
+  .pop-up__btn {
+    margin-top: 15px;
+    padding: 10px;
+  }
+
+  .pop-up__separator {
+    margin-top: 15px;
+  }
+
+  .pop-up__form input {
+    margin-bottom: 10px;
+    height: 45px;
+  }
 }
 
 @media (max-width: 391px) {
@@ -858,18 +1069,18 @@ body.unscrollable {
   .nav {
     position: fixed;
     top: 15px;
-    left: 0;
+    right: -100%;
+    z-index: 100;
     width: 165px;
     height: 250px;
     border-radius: 10px;
     background: #f2785c;
     box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
-    transform: translateX(500px);
     transition: all 0.3s ease;
   }
 
   .nav.open {
-    transform: translateX(210px);
+    right: 15px;
   }
 
   .nav__list {
@@ -935,19 +1146,16 @@ body.unscrollable {
 
   .carousel {
     padding: 0;
-    align-self: flex-start;
   }
 
   .carousel__item {
-    max-width: calc(100vw - 30px);
+    width: calc(100vw - 30px);
     height: 210px;
     zoom: 100%;
   }
 
   .carousel-item__name {
     top: 9px;
-    font-size: 20px;
-    line-height: 26px;
   }
 
   .carousel-arrows {
@@ -958,6 +1166,16 @@ body.unscrollable {
     justify-content: space-between;
     width: 100%;
     padding: 0px 20px;
+  }
+
+  .carousel-arrows > .left,
+  .carousel-arrows > .right {
+    transition: all 0.3s ease;
+  }
+
+  .carousel-arrows > .left:active,
+  .carousel-arrows > .right:active {
+    opacity: 0.7;
   }
 
   .carousel-pagination {

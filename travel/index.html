@@ -51,19 +51,19 @@
                 <a href="#stories" class="nav__link">Travel stories</a>
               </li>
               <li class="nav__item nav__account">
-                <a href="#" class="nav__link mobile-link">Account</a>
+                <a href="#" class="nav__link mobile-link account-btn">Account</a>
               </li>
               <li class="nav__item nav__social">
                 <a href="#footer" class="nav__link mobile-link">Social media</a>
               </li>
             </ul>
           </nav>
-          <button class="btn header__btn">Login</button>
+          <button class="btn header__btn account-btn">Login</button>
           <svg class="burger-menu" width="35" height="32" viewBox="0 0 35 32" xmlns="http://www.w3.org/2000/svg">
             <path d="M29.2396 14.6667H5.76042C4.99527 14.6667 4.375 15.2338 4.375 15.9333V16.0667C4.375 16.7662 4.99527 17.3333 5.76042 17.3333H29.2396C30.0047 17.3333 30.625 16.7662 30.625 16.0667V15.9333C30.625 15.2338 30.0047 14.6667 29.2396 14.6667Z"/>
             <path d="M29.2396 21.3333H5.76042C4.99527 21.3333 4.375 21.9004 4.375 22.6V22.7333C4.375 23.4329 4.99527 24 5.76042 24H29.2396C30.0047 24 30.625 23.4329 30.625 22.7333V22.6C30.625 21.9004 30.0047 21.3333 29.2396 21.3333Z"/>
             <path d="M29.2396 8H5.76042C4.99527 8 4.375 8.56711 4.375 9.26667V9.4C4.375 10.0996 4.99527 10.6667 5.76042 10.6667H29.2396C30.0047 10.6667 30.625 10.0996 30.625 9.4V9.26667C30.625 8.56711 30.0047 8 29.2396 8Z"/>
-            </svg>
+          </svg>
         </div>
       </div>
     </header>
@@ -150,29 +150,51 @@
         <div class="container destinations__container">
           <h2 class="section__title">Popular destinations</h2>
           <div class="carousel row">
-            <div class="carousel__item">
-              <picture>
-                <source media="(max-width:391px)" srcset="assets/img/destinations-spain-360x210.jpg">
-              <img
-                src="assets/img/destinations-spain-800x800.jpg"
-                alt="Spain"
-                class="carousel-item__img"
-              />
-            </picture>
-            <span class="carousel-item__name">Spain</span>
-            </div>
-            <div class="carousel__item">
+            <div class="carousel__item slide-left-second">
               <picture>
                 <source media="(max-width:391px)" srcset="assets/img/destinations-japan-360x210.jpg">
               <img
                 src="assets/img/destinations-japan-800x800.jpg"
+                alt="Spain"
+                class="carousel-item__img"
+              />
+            </picture>
+            <span class="carousel-item__name">japan</span>
+            </div>
+            <div class="carousel__item slide-left">
+              <picture>
+                <source media="(max-width:391px)" srcset="assets/img/destinations-usa-360x210.jpg">
+              <img
+                src="assets/img/destinations-usa-800x800.jpg"
+                alt="Spain"
+                class="carousel-item__img"
+              />
+            </picture>
+            <span class="carousel-item__name">usa</span>
+            </div>
+            <div class="carousel__item slide-active">
+              <picture>
+                <source media="(max-width:391px)" srcset="assets/img/destinations-spain-360x210.jpg">
+              <img
+                src="assets/img/destinations-spain-800x800.jpg"
                 alt="Japan"
                 class="carousel-item__img"
               />
             </picture>
-            <span class="carousel-item__name">Japan</span>
+            <span class="carousel-item__name">spain</span>
             </div>
-            <div class="carousel__item">
+            <div class="carousel__item slide-right">
+              <picture>
+                <source media="(max-width:391px)" srcset="assets/img/destinations-japan-360x210.jpg">
+              <img
+                src="assets/img/destinations-japan-800x800.jpg"
+                alt="USA"
+                class="carousel-item__img"
+              />
+              </picture>
+              <span class="carousel-item__name">japan</span>
+            </div>
+            <div class="carousel__item slide-right-second">
               <picture>
                 <source media="(max-width:391px)" srcset="assets/img/destinations-usa-360x210.jpg">
               <img
@@ -185,19 +207,17 @@
             </div>
           </div>
           <div class="carousel-arrows">
-            <svg class="disabled" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <svg class="left" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
               <path d="M20.0757 26.9325C20.4272 26.5809 20.6246 26.1041 20.6246 25.6069C20.6246 25.1097 20.4272 24.6329 20.0757 24.2813L10.7944 15L20.0757 5.71875C20.4172 5.36512 20.6062 4.89149 20.6019 4.39987C20.5976 3.90825 20.4005 3.43798 20.0528 3.09034C19.7052 2.7427 19.2349 2.54551 18.7433 2.54124C18.2517 2.53696 17.778 2.72595 17.4244 3.0675L6.81753 13.6744C6.46602 14.026 6.26855 14.5028 6.26855 15C6.26855 15.4972 6.46602 15.974 6.81753 16.3256L17.4244 26.9325C17.776 27.284 18.2528 27.4815 18.75 27.4815C19.2472 27.4815 19.724 27.284 20.0757 26.9325Z"/>
             </svg>
-            <svg width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <svg class="right" width="30" height="30" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
               <path d="M20.0757 26.9325C20.4272 26.5809 20.6246 26.1041 20.6246 25.6069C20.6246 25.1097 20.4272 24.6329 20.0757 24.2813L10.7944 15L20.0757 5.71875C20.4172 5.36512 20.6062 4.89149 20.6019 4.39987C20.5976 3.90825 20.4005 3.43798 20.0528 3.09034C19.7052 2.7427 19.2349 2.54551 18.7433 2.54124C18.2517 2.53696 17.778 2.72595 17.4244 3.0675L6.81753 13.6744C6.46602 14.026 6.26855 14.5028 6.26855 15C6.26855 15.4972 6.46602 15.974 6.81753 16.3256L17.4244 26.9325C17.776 27.284 18.2528 27.4815 18.75 27.4815C19.2472 27.4815 19.724 27.284 20.0757 26.9325Z"/>
             </svg>
           </div>
           <div class="carousel-pagination row">
-            <div class="carousel-pagination__item carousel-pagination__item_active"></div>
-            <div
-              class="carousel-pagination__item"
-            ></div>
-            <div class="carousel-pagination__item"></div>
+            <div class="carousel-pagination__item carousel-pagination__item_active" data-idx="0"></div>
+            <div class="carousel-pagination__item" data-idx="1"></div>
+            <div class="carousel-pagination__item" data-idx="2"></div>
           </div>
           <button class="btn destinations__btn">Find more</button>
         </div>
@@ -414,6 +434,38 @@
         </ul>
       </div>
     </footer>
+    <div class="pop-up">
+      <h4 class="pop-up__title"><span class="sign-in">Log in to your account</span><span class="sign-up">Create account</span></h4>
+      <div class="sign-in">
+        <button class="btn pop-up__btn facebook-btn"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" transform="translate(0.5)"/>
+        <path d="M24 12.0699C24 5.71857 18.8513 0.569853 12.5 0.569853C6.14872 0.569853 1 5.71857 1 12.0699C1 17.8098 5.20538 22.5674 10.7031 23.4301V15.3941H7.7832V12.0699H10.7031V9.53626C10.7031 6.65407 12.42 5.06204 15.0468 5.06204C16.305 5.06204 17.6211 5.28665 17.6211 5.28665V8.11673H16.171C14.7424 8.11673 14.2969 9.00319 14.2969 9.91264V12.0699H17.4863L16.9765 15.3941H14.2969V23.4301C19.7946 22.5674 24 17.8098 24 12.0699Z" fill="white"/>
+          </svg>
+        Sign In with Facebook</button>
+        <button class="btn pop-up__btn google-btn"><svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="24" height="24" transform="translate(0.5)"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M23.54 12.2614C23.54 11.4459 23.4668 10.6618 23.3309 9.90909H12.5V14.3575H18.6891C18.4225 15.795 17.6123 17.013 16.3943 17.8284V20.7139H20.1109C22.2855 18.7118 23.54 15.7636 23.54 12.2614Z" fill="#4285F4"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 23.4998C15.605 23.4998 18.2081 22.4701 20.1109 20.7137L16.3943 17.8282C15.3645 18.5182 14.0472 18.926 12.5 18.926C9.50474 18.926 6.96951 16.903 6.06519 14.1848H2.22314V17.1644C4.11542 20.9228 8.00451 23.4998 12.5 23.4998Z" fill="#34A853"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.06523 14.1851C5.83523 13.4951 5.70455 12.758 5.70455 12.0001C5.70455 11.2421 5.83523 10.5051 6.06523 9.81506V6.83552H2.22318C1.44432 8.38802 1 10.1444 1 12.0001C1 13.8557 1.44432 15.6121 2.22318 17.1646L6.06523 14.1851Z" fill="#FBBC05"/>
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M12.5 5.07386C14.1884 5.07386 15.7043 5.65409 16.8961 6.79364L20.1945 3.49523C18.2029 1.63955 15.5997 0.5 12.5 0.5C8.00451 0.5 4.11542 3.07705 2.22314 6.83545L6.06519 9.815C6.96951 7.09682 9.50474 5.07386 12.5 5.07386Z" fill="#EA4335"/>
+          </svg>
+        Sign In with Google</button>
+        <p class="pop-up__separator">or</p>
+      </div>
+      <form action="#" class="from pop-up__form">
+        <label for="pop-up__input-e-mail">E-mail</label>
+        <input type="text" name="mail" id="pop-up__input-e-mail" />
+        <label for="pop-up__input-password">Password</label>
+        <input type="text" name="password" id="pop-up__input-password" />
+        <button
+                class="btn pop-up__btn pop-up__btn-submit"
+                type="submit"
+                value="submit"
+              ><span class="sign-in">Sign In</span><span class="sign-up">Sign Up</span></button>
+      </form>
+      <a href="#" class="pop-up__forgot-password sign-in">Forgot Your Password?</a>
+      <p class="pop-up__account"><span class="sign-in">Don`t have an account?</span><span class="sign-up">Already have an account?</span> <a href="#" class="pop-up-toggle"><span class="sign-in">Register</span><span class="sign-up">Log in</span></a></p>
+    </div>
     <div class="backdrop"></div>
     <script src="index.js"></script>
   </body>

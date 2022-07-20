@@ -373,7 +373,13 @@ body.unscrollable {
   height: 20px;
   background-color: var(--color-accent);
   border-radius: 50%;
+  cursor: pointer;
   opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+.carousel-pagination__item:hover {
+  opacity: 0.7;
 }
 
 .carousel-pagination__item_active {
@@ -770,6 +776,11 @@ body.unscrollable {
   }
 }
 
+.moveLeft,
+.moveRight {
+  transition: all 0.5s ease;
+}
+
 /* ================= Responsive ===================== */
 
 @media (max-width: 1350px) {
@@ -901,7 +912,14 @@ body.unscrollable {
   }
 
   .carousel__item {
-    zoom: 50%;
+    width: 250px;
+    height: 250px;
+  }
+
+  .carousel-item__name {
+    bottom: 15px;
+    font-size: 20px;
+    line-height: 26px;
   }
 
   .stories__list {
@@ -1128,19 +1146,16 @@ body.unscrollable {
 
   .carousel {
     padding: 0;
-    align-self: flex-start;
   }
 
   .carousel__item {
-    max-width: calc(100vw - 30px);
+    width: calc(100vw - 30px);
     height: 210px;
     zoom: 100%;
   }
 
   .carousel-item__name {
     top: 9px;
-    font-size: 20px;
-    line-height: 26px;
   }
 
   .carousel-arrows {
@@ -1151,6 +1166,16 @@ body.unscrollable {
     justify-content: space-between;
     width: 100%;
     padding: 0px 20px;
+  }
+
+  .carousel-arrows > .left,
+  .carousel-arrows > .right {
+    transition: all 0.3s ease;
+  }
+
+  .carousel-arrows > .left:active,
+  .carousel-arrows > .right:active {
+    opacity: 0.7;
   }
 
   .carousel-pagination {

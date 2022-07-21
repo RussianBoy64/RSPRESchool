@@ -215,11 +215,11 @@ slideRight.addEventListener('click', moveRight)
 
 carousel.addEventListener('transitionend', () => {
   if (carousel.classList.contains('moveLeft')) {
-    carousel.classList.remove('moveLeft')
     setSliderImgs('left')
+    carousel.classList.remove('moveLeft')
   } else {
-    carousel.classList.remove('moveRight')
     setSliderImgs('right')
+    carousel.classList.remove('moveRight')
   }
 
   carousel.style.transform = ''

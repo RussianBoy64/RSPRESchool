@@ -1,0 +1,52 @@
+.author-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .github-link {
+    padding-left: 1rem;
+    margin-left: 0.5rem;
+
+    .github-icon {
+      position: relative;
+      display: inline-block;
+      padding-right: 10px;
+      margin-right: 5px;
+      transition: all 300ms ease;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 4px;
+        border-radius: 4px;
+        background-color: red;
+      }
+    }
+
+    &:hover {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
+
+      .github-icon {
+        color: blue;
+      }
+    }
+
+    &:active {
+      color: red;
+    }
+  }
+
+  .github-link .github-link img {
+    width: 80px;
+    cursor: pointer;
+    transition: all 300ms ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,4 +1,12 @@
+// Import styles
 import './scss/index.scss'
+
+// Import scripts
+import { showTime } from './modules/dateTime'
+
+// const currentTime = getTime('ru-RU')
+// console.log(currentTime)
+showTime('ru-RU')
 
 // const createImage = (src) =>
 //   new Promise((res, rej) => {

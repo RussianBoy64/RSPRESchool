@@ -2,11 +2,10 @@
 import './scss/index.scss'
 
 // Import scripts
+import { user } from './modules/user'
 import { showTime } from './modules/dateTime'
 
-// const currentTime = getTime('ru-RU')
-// console.log(currentTime)
-showTime('ru-RU')
+showTime(user.options.locale)
 
 // const createImage = (src) =>
 //   new Promise((res, rej) => {

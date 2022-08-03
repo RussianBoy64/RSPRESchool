@@ -5,9 +5,18 @@ import './scss/index.scss'
 import { user } from './modules/user'
 import { showTime } from './modules/time'
 import { showDate } from './modules/date'
+import { showGreeting, setInputSize } from './modules/greeting'
 
-showTime()
+// Variables
+
+showTime('ru-RU')
 showDate('ru-RU')
+showGreeting()
+setInputSize()
+
+// window.addEventListener('load', () => {
+//
+// })
 
 // const createImage = (src) =>
 //   new Promise((res, rej) => {

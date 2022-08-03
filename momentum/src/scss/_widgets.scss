@@ -5,7 +5,7 @@
 // TIME
 
 .time {
-  font-size: 5em;
+  font-size: 4.5em;
   font-weight: 700;
   white-space: nowrap;
 
@@ -19,8 +19,37 @@
 // DATE
 
 .date {
-  font-size: 1.5em;
+  margin-bottom: 1em;
+  font-size: 1.2em;
   text-transform: capitalize;
 
   @extend %transition;
+}
+
+// GREETING
+
+.greeting-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  font-size: 2em;
+
+  @extend %transition;
+
+  .greeting {
+  }
+
+  .name {
+    padding: 0px;
+    outline: none;
+    border: none;
+    color: inherit;
+    background-color: transparent;
+
+    &::placeholder {
+      color: inherit;
+    }
+  }
 }

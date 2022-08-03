@@ -4,8 +4,10 @@ import './scss/index.scss'
 // Import scripts
 import { user } from './modules/user'
 import { showTime } from './modules/time'
+import { showDate } from './modules/date'
 
 showTime()
+showDate('ru-RU')
 
 // const createImage = (src) =>
 //   new Promise((res, rej) => {

@@ -1,10 +1,17 @@
 .author-info {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: space-between;
   width: 100%;
 
+  &__item {
+    display: flex;
+    justify-content: center;
+  }
+
   .github-link {
+    white-space: nowrap;
     transition: all 400ms ease;
 
     .github-icon {

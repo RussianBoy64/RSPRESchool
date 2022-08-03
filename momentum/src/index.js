@@ -3,9 +3,9 @@ import './scss/index.scss'
 
 // Import scripts
 import { user } from './modules/user'
-import { showTime } from './modules/dateTime'
+import { showTime } from './modules/time'
 
-showTime(user.options.locale)
+showTime()
 
 // const createImage = (src) =>
 //   new Promise((res, rej) => {

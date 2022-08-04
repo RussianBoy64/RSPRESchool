@@ -1,7 +1,3 @@
-%transition {
-  transition: all 300ms ease-in-out;
-}
-
 // TIME
 
 .time {
@@ -44,6 +40,10 @@
     border: none;
     color: inherit;
     background-color: transparent;
+
+    &::after {
+      content: 'hello';
+    }
 
     @extend %transition;
 

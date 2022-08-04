@@ -1,3 +1,4 @@
+const TIMEOFDAY = ['night', 'morning', 'afternoon', 'evening']
 const GREETING = {
   'en-US': ['Good night,', 'Good morning,', 'Good afternoon,', 'Good evening,'],
   'ru-RU': ['Доброй ночи,', 'Доброе утро,', 'Добрый день,', 'Добрый вечер,'],
@@ -8,16 +9,15 @@ const MAXLENGTH = 15
 const greetingElement = document.querySelector('.greeting')
 const nameInput = document.querySelector('.name')
 
-function showGreeting(locale, hours) {
-  if (!hours) {
-    hours = new Date().getHours()
-  }
-  greetingElement.textContent = getTimeOfDay(locale, hours)
+function getTimeOfDay() {
+  const hours = new Date().getHours()
+
+  return Math.floor(hours / 6)
 }
 
-function getTimeOfDay(locale, hours) {
-  const currentDayTime = GREETING[locale][Math.floor(hours / 6)]
-  return currentDayTime
+function showGreeting(locale) {
+  const currentDayTime = getTimeOfDay()
+  greetingElement.textContent = GREETING[locale][currentDayTime]
 }
 
 function setUserName(user) {
@@ -45,4 +45,4 @@ function setUserName(user) {
   })
 }
 
-export { showGreeting, setUserName }
+export { showGreeting, setUserName, getTimeOfDay, TIMEOFDAY }

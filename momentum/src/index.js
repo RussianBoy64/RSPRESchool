@@ -7,6 +7,7 @@ import { showTime } from './modules/time'
 import { showDate } from './modules/date'
 import { showGreeting, setUserName } from './modules/greeting'
 import { setLocalStorage, getLocalStorage } from './modules/localStorage'
+import { setBg } from './modules/bg'
 
 // Variables
 const user = new User()
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showDate(user.options.locale)
   showGreeting(user.options.locale)
   setUserName(user)
+  setBg()
 })
 
 window.addEventListener('beforeunload', () => setLocalStorage(user))

@@ -5,11 +5,8 @@
 @import 'authorInfo';
 @import 'widgets';
 
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: calc(15px + 0.390625vw);
-  font-weight: 400;
-  color: $primary-color;
+%transition {
+  transition: all 300ms ease-in-out;
 }
 
 %flex-row {
@@ -22,13 +19,24 @@ body {
   flex-direction: column;
 }
 
+body {
+  position: relative;
+  font-family: 'Roboto', sans-serif;
+  font-size: calc(15px + 0.390625vw);
+  font-weight: 400;
+  color: $primary-color;
+  background-color: #a3a3c2;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .wrapper {
   @extend %flex-column;
   max-width: 2560px;
   min-height: 100vh;
   padding: 20px;
   margin: 0 auto;
-  background-color: #a3a3c2;
 }
 
 .header,
@@ -42,13 +50,41 @@ body {
 }
 
 .main {
+  position: relative;
   @extend %flex-column;
   align-items: center;
   justify-content: center;
   flex: 1;
+
+  .slider {
+    position: absolute;
+    top: 50%;
+    @extend %flex-row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+
+    .fa-solid {
+      font-size: 2em;
+
+      &:hover {
+        transform: scale(2);
+      }
+    }
+  }
 }
 
 .footer {
   min-height: 100px;
   align-items: flex-end;
+}
+
+.backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: rgba(0, 0, 0, 0.5);
 }

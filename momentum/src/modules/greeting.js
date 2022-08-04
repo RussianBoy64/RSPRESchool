@@ -9,14 +9,16 @@ const MAXLENGTH = 15
 const greetingElement = document.querySelector('.greeting')
 const nameInput = document.querySelector('.name')
 
-function getTimeOfDay() {
-  const hours = new Date().getHours()
+function getTimeOfDay(hours) {
+  if (hours === undefined) {
+    hours = new Date().getHours()
+  }
 
   return Math.floor(hours / 6)
 }
 
-function showGreeting(locale) {
-  const currentDayTime = getTimeOfDay()
+function showGreeting(locale, hours) {
+  const currentDayTime = getTimeOfDay(hours)
   greetingElement.textContent = GREETING[locale][currentDayTime]
 }
 

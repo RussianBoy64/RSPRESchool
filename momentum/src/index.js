@@ -12,10 +12,6 @@ import { setBg } from './modules/bg'
 // Variables
 const user = new User()
 
-// window.addEventListener('load', () => {
-
-// })
-
 document.addEventListener('DOMContentLoaded', () => {
   user.name = getLocalStorage()
 

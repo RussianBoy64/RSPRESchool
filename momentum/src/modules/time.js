@@ -14,7 +14,7 @@ function getTime(locale) {
 
   if (currentTime === '00 : 00 : 00') {
     showDate(locale, date)
-    showGreeting(locale)
+    showGreeting(locale, hours)
     setBg()
   } else if (
     currentTime === '06 : 00 : 00' ||

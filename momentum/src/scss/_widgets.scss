@@ -38,15 +38,14 @@
 
   @extend %transition;
 
-  .greeting {
-  }
-
   .name {
     padding: 0px;
     outline: none;
     border: none;
     color: inherit;
     background-color: transparent;
+
+    @extend %transition;
 
     &::placeholder {
       color: inherit;

@@ -2,21 +2,29 @@
 import './scss/index.scss'
 
 // Import scripts
-import { user } from './modules/user'
+import { User } from './modules/user'
 import { showTime } from './modules/time'
 import { showDate } from './modules/date'
-import { showGreeting, setInputSize } from './modules/greeting'
+import { showGreeting, setUserName } from './modules/greeting'
+import { setLocalStorage, getLocalStorage } from './modules/localStorage'
 
 // Variables
-
-showTime('ru-RU')
-showDate('ru-RU')
-showGreeting()
-setInputSize()
+const user = new User()
 
 // window.addEventListener('load', () => {
-//
+
 // })
+
+document.addEventListener('DOMContentLoaded', () => {
+  user.name = getLocalStorage()
+
+  showTime(user.options.locale)
+  showDate(user.options.locale)
+  showGreeting(user.options.locale)
+  setUserName(user)
+})
+
+window.addEventListener('beforeunload', () => setLocalStorage(user))
 
 // const createImage = (src) =>
 //   new Promise((res, rej) => {

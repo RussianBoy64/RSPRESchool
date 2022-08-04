@@ -1,23 +1,48 @@
-const DAYTIME = ['morning', 'afternoon', 'evening', 'night']
-const greeting = document.querySelector('.greeting')
+const GREETING = {
+  'en-US': ['Good night,', 'Good morning,', 'Good afternoon,', 'Good evening,'],
+  'ru-RU': ['Доброй ночи,', 'Доброе утро,', 'Добрый день,', 'Добрый вечер,'],
+}
+const MINLENGTH = 13
+const MAXLENGTH = 15
+
+const greetingElement = document.querySelector('.greeting')
 const nameInput = document.querySelector('.name')
 
-function showGreeting(hours) {
+function showGreeting(locale, hours) {
   if (!hours) {
     hours = new Date().getHours()
   }
-  greeting.textContent = `Good ${getTimeOfDay(hours)},`
+  greetingElement.textContent = getTimeOfDay(locale, hours)
 }
 
-function getTimeOfDay(hours) {
-  const currentDayTime = DAYTIME[Math.floor(hours / 6)]
+function getTimeOfDay(locale, hours) {
+  const currentDayTime = GREETING[locale][Math.floor(hours / 6)]
   return currentDayTime
 }
 
-function setInputSize() {
-  nameInput.addEventListener('keydown', () => {
-    nameInput.size = nameInput.value.length === 0 ? 1 : nameInput.value.length
+function setUserName(user) {
+  if (user.name) {
+    nameInput.value = user.name
+    nameInput.size = user.name.length
+  } else {
+    nameInput.size = MINLENGTH
+  }
+
+  nameInput.maxLength = MAXLENGTH
+
+  nameInput.addEventListener('keyup', () => {
+    const userName = nameInput.value
+    const inputLength = nameInput.value.length
+
+    nameInput.size =
+      inputLength === 0
+        ? MINLENGTH
+        : inputLength > MAXLENGTH
+        ? MAXLENGTH
+        : inputLength
+
+    user.name = userName
   })
 }
 
-export { showGreeting, setInputSize }
+export { showGreeting, setUserName }

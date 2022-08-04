@@ -12,15 +12,15 @@ function getTime(locale) {
 
   const currentTime = `${hours} : ${minutes} : ${seconds}`
 
-  if (currentTime === '00 : 00 : 01') {
+  if (currentTime === '00 : 00 : 00') {
     showDate(locale)
-    showGreeting(hours)
+    showGreeting(locale, hours)
   } else if (
     currentTime === '06 : 00 : 00' ||
     currentTime === '12 : 00 : 00' ||
     currentTime === '18 : 00 : 00'
   ) {
-    showGreeting(hours)
+    showGreeting(locale, hours)
   }
 
   return currentTime

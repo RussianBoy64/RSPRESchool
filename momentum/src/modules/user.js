@@ -3,11 +3,11 @@ class User {
     this.name = name
     this.city = city
     this.options = {
-      locale: 'ru-Ru',
+      locale: 'ru-RU',
       time: true,
       date: true,
     }
   }
 }
 
-export const user = new User('Vova')
+export { User }

@@ -67,8 +67,12 @@ body {
     .fa-solid {
       font-size: 2em;
 
-      &:hover {
-        transform: scale(2);
+      &.fa-chevron-left:hover {
+        animation: slideLeft 1000ms ease infinite;
+      }
+
+      &.fa-chevron-right:hover {
+        animation: slideRight 1000ms ease infinite;
       }
     }
   }
@@ -87,4 +91,29 @@ body {
   bottom: 0;
   z-index: -1;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+// ANIMATION
+@keyframes slideLeft {
+  33% {
+    transform: translateX(-20%);
+  }
+  66% {
+    transform: translateX(20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideRight {
+  33% {
+    transform: translateX(20%);
+  }
+  66% {
+    transform: translateX(-20%);
+  }
+  100% {
+    transform: translateX(0);
+  }
 }

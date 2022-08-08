@@ -13,7 +13,24 @@
   </head>
   <body>
     <div class="wrapper">
-      <header class="header"></header>
+      <header class="header">
+        <div class="weather">
+          <input
+            type="text"
+            name="city"
+            class="weather__city"
+            placeholder="Enter city"
+          />
+          <span class="weather__error"></span>
+          <div class="weather__row">
+            <span class="weather__temperature"></span
+            ><i class="weather-icon owf"></i>
+          </div>
+          <span class="weather__description"></span>
+          <span class="weather__wind"></span>
+          <span class="weather__humidity"></span>
+        </div>
+      </header>
       <main class="main">
         <time class="time">00:00:00</time>
         <span class="date"></span>

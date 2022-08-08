@@ -8,21 +8,25 @@ import { showDate } from './modules/date'
 import { showGreeting, setUserName } from './modules/greeting'
 import { setLocalStorage, getLocalStorage } from './modules/localStorage'
 import { setBg } from './modules/bg'
+import { getWeather } from './modules/weather'
 
 // Variables
-const user = new User()
+let user = new User()
 
 document.addEventListener('DOMContentLoaded', () => {
-  user.name = getLocalStorage()
+  user = getLocalStorage(user)
 
   showTime(user.options.locale)
   showDate(user.options.locale)
   showGreeting(user.options.locale)
   setUserName(user)
   setBg()
+  getWeather(user.city)
 })
 
 window.addEventListener('beforeunload', () => setLocalStorage(user))
+
+export { user }
 
 // const createImage = (src) =>
 //   new Promise((res, rej) => {

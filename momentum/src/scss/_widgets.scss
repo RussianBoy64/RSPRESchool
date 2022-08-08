@@ -34,25 +34,60 @@
 
   @extend %transition;
 
-  .name {
-    padding: 0px;
-    outline: none;
-    border: none;
-    color: inherit;
-    background-color: transparent;
-
-    @extend %transition;
-
-    &::placeholder {
-      color: inherit;
-    }
-  }
-
   @media (max-width: 500px) {
     flex-direction: column;
     font-size: 1.2em;
 
     .name {
+      text-align: center;
+    }
+  }
+}
+
+// WEATHER
+.weather {
+  @extend %flex-column;
+  gap: 5px;
+  max-width: 250px;
+
+  .weather__city {
+    font-size: 1.5em;
+    text-transform: capitalize;
+    border-bottom: 2px solid $accent-color;
+  }
+
+  .weather__row {
+    @extend %flex-row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    .weather__temperature {
+      font-size: 2em;
+    }
+
+    .weather-icon {
+      font-size: 3em;
+    }
+  }
+
+  .weather__description,
+  .weather__wind,
+  .weather__humidity {
+    font-size: 0.7em;
+  }
+
+  @media (max-width: 500px) {
+    .weather__city {
+      max-width: 150px;
+      font-size: 1.2em;
+    }
+  }
+
+  @media (max-width: 340px) {
+    text-align: center;
+
+    .weather__city {
       text-align: center;
     }
   }

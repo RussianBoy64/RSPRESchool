@@ -29,6 +29,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  transition: all 700ms ease;
 }
 
 .wrapper {
@@ -64,14 +65,20 @@ body {
     justify-content: space-between;
     width: 100%;
 
-    .fa-solid {
+    &__btn {
+      border: none;
       font-size: 2em;
+      color: inherit;
+      background-color: transparent;
+      transition: all 400ms ease;
 
-      &.fa-chevron-left:hover {
+      &.btn-left:hover {
+        color: yellow;
         animation: slideLeft 1000ms ease infinite;
       }
 
-      &.fa-chevron-right:hover {
+      &.btn-right:hover {
+        color: yellow;
         animation: slideRight 1000ms ease infinite;
       }
     }
@@ -95,10 +102,10 @@ body {
 
 // ANIMATION
 @keyframes slideLeft {
-  33% {
+  25% {
     transform: translateX(-20%);
   }
-  66% {
+  75% {
     transform: translateX(20%);
   }
   100% {
@@ -107,10 +114,10 @@ body {
 }
 
 @keyframes slideRight {
-  33% {
+  25% {
     transform: translateX(20%);
   }
-  66% {
+  75% {
     transform: translateX(-20%);
   }
   100% {

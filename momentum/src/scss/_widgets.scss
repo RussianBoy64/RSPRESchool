@@ -41,10 +41,6 @@
     color: inherit;
     background-color: transparent;
 
-    &::after {
-      content: 'hello';
-    }
-
     @extend %transition;
 
     &::placeholder {
@@ -55,5 +51,9 @@
   @media (max-width: 500px) {
     flex-direction: column;
     font-size: 1.2em;
+
+    .name {
+      text-align: center;
+    }
   }
 }

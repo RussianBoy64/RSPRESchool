@@ -14,6 +14,7 @@
   <body>
     <div class="wrapper">
       <header class="header">
+        <div class="music-player"></div>
         <div class="weather">
           <input
             type="text"
@@ -21,14 +22,19 @@
             class="weather__city"
             placeholder="Enter city"
           />
-          <span class="weather__error"></span>
-          <div class="weather__row">
-            <span class="weather__temperature"></span
-            ><i class="weather-icon owf"></i>
+          <div class="weather__error-container">
+            <span class="weather__error-name"></span>
+            <span class="weather__error-message"></span>
           </div>
-          <span class="weather__description"></span>
-          <span class="weather__wind"></span>
-          <span class="weather__humidity"></span>
+          <div class="weather__description-container">
+            <div class="weather__row">
+              <span class="weather__temperature"></span
+              ><i class="weather-icon owf"></i>
+            </div>
+            <span class="weather__description"></span>
+            <span class="weather__wind"></span>
+            <span class="weather__humidity"></span>
+          </div>
         </div>
       </header>
       <main class="main">

@@ -50,6 +50,7 @@ body {
 }
 
 .wrapper {
+  position: relative;
   @extend %flex-column;
   max-width: 2560px;
   min-height: 100vh;
@@ -65,12 +66,12 @@ body {
 
 .header {
   @extend %flex-row;
+  justify-content: space-between;
+  flex-wrap: wrap;
   min-height: 100px;
-  justify-self: flex-end;
 }
 
 .main {
-  position: relative;
   @extend %flex-column;
   align-items: center;
   justify-content: center;
@@ -80,9 +81,11 @@ body {
     position: absolute;
     top: 50%;
     @extend %flex-row;
+    padding: 0 20px;
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    transform: translateY(-50%);
 
     &__btn {
       border: none;

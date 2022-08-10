@@ -45,6 +45,7 @@
 }
 
 // WEATHER
+
 .weather {
   position: relative;
   max-width: 200px;
@@ -63,14 +64,7 @@
     width: 100%;
     margin-top: 5px;
 
-    opacity: 0;
-    transform: translateY(10px);
-    @extend %transition;
-
-    &.show {
-      opacity: 1;
-      transform: translateY(0px);
-    }
+    @extend %hidden;
   }
 
   .weather__row {
@@ -108,6 +102,40 @@
 
     .weather__city {
       text-align: center;
+    }
+  }
+}
+
+// QUOTE
+
+.quote-container {
+  margin-bottom: 10px;
+  text-align: center;
+
+  @extend %hidden;
+
+  .quote-change {
+    padding: 5px;
+    font-size: 1.5em;
+
+    &:hover {
+      transform: rotate(360deg);
+    }
+
+    &:active {
+      opacity: 0.5;
+      transform: rotate(0deg);
+    }
+  }
+
+  .quote {
+    @extend %hidden;
+
+    .quote-text {
+      font-size: 1em;
+    }
+    .quote-author {
+      font-size: 0.8em;
     }
   }
 }

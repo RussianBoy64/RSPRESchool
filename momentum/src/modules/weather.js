@@ -61,7 +61,6 @@ function showWeather(data) {
     descriptionContainer.classList.remove('show')
     setTimeout(() => showWeather(data), 300)
   } else {
-    descriptionContainer.removeEventListener('transitionend', showWeather)
     //show weather description
     weatherIcon.className = `weather-icon owf owf-${data.weather[0].id}`
     temperature.textContent = `${Math.floor(data.main.temp)}°C`

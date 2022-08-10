@@ -21,6 +21,12 @@
   flex-direction: column;
 }
 
+%hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  @extend %transition;
+}
+
 input {
   max-width: 100%;
   padding: 0px;
@@ -54,7 +60,7 @@ body {
   @extend %flex-column;
   max-width: 2560px;
   min-height: 100vh;
-  padding: 20px;
+  padding: 15px;
   margin: 0 auto;
 }
 
@@ -62,6 +68,18 @@ body {
 .main,
 .footer {
   display: flex;
+}
+
+.btn {
+  border: none;
+  color: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 400ms ease;
+
+  &:hover {
+    color: $accent-color;
+  }
 }
 
 .header {
@@ -81,35 +99,42 @@ body {
     position: absolute;
     top: 50%;
     @extend %flex-row;
-    padding: 0 20px;
+    padding: 0 15px;
     align-items: center;
     justify-content: space-between;
     width: 100%;
     transform: translateY(-50%);
 
     &__btn {
-      border: none;
       font-size: 2em;
-      color: inherit;
-      background-color: transparent;
-      transition: all 400ms ease;
 
       &.btn-left:hover {
-        color: $accent-color;
         animation: slideLeft 1000ms ease infinite;
       }
 
       &.btn-right:hover {
-        color: $accent-color;
         animation: slideRight 1000ms ease infinite;
+      }
+
+      &.btn-left:active,
+      &.btn-right:active {
+        opacity: 0.5;
       }
     }
   }
 }
 
 .footer {
+  @extend %flex-column;
+  align-items: center;
+  justify-content: flex-end;
   min-height: 100px;
-  align-items: flex-end;
+
+  .footer-inner {
+    @extend %flex-row;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .backdrop {
@@ -120,6 +145,11 @@ body {
   bottom: 0;
   z-index: -1;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.show {
+  opacity: 1 !important;
+  transform: translateY(0px) !important;
 }
 
 // ANIMATION

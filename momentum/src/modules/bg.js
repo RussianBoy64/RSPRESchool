@@ -1,4 +1,5 @@
 import { getTimeOfDay, TIMEOFDAY } from './greeting'
+import { getRandomNum } from './randomNum'
 
 const GITHUBLINK =
   'https://raw.githubusercontent.com/RussianBoy64/stage1-tasks/assets/images/'
@@ -6,11 +7,7 @@ const GITHUBLINK =
 const body = document.querySelector('body')
 const prevBtn = document.querySelector('.btn-left')
 const nextBtn = document.querySelector('.btn-right')
-let bgNum = getRandomNum()
-
-function getRandomNum(min = 1, max = 20) {
-  return Math.floor(Math.random() * (max - min + 1)) + min
-}
+let bgNum = getRandomNum(1, 20)
 
 function setBg() {
   const currentDayTime = TIMEOFDAY[getTimeOfDay()]

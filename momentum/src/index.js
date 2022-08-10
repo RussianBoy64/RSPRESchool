@@ -9,6 +9,7 @@ import { showGreeting, setUserName } from './modules/greeting'
 import { setLocalStorage, getLocalStorage } from './modules/localStorage'
 import { setBg } from './modules/bg'
 import { getWeather } from './modules/weather'
+import { getQuote } from './modules/quotes'
 
 // Variables
 let user = new User()
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setUserName(user)
   setBg()
   getWeather(user.city)
+  getQuote(user.options.locale)
 })
 
 window.addEventListener('beforeunload', () => setLocalStorage(user))

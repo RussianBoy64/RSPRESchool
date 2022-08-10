@@ -35,7 +35,7 @@ function getSlidePrev() {
   prevBtn.removeEventListener('click', getSlidePrev)
   nextBtn.removeEventListener('click', getSlideNext)
 
-  bgNum = bgNum-- === 1 ? 20 : bgNum--
+  bgNum = bgNum === 1 ? 20 : --bgNum
   setBg()
 }
 
@@ -44,7 +44,7 @@ function getSlideNext() {
   prevBtn.removeEventListener('click', getSlidePrev)
   nextBtn.removeEventListener('click', getSlideNext)
 
-  bgNum = bgNum++ === 20 ? 1 : bgNum++
+  bgNum = bgNum === 20 ? 1 : ++bgNum
   setBg()
 }
 

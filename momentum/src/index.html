@@ -14,7 +14,31 @@
   <body>
     <div class="wrapper">
       <header class="header">
-        <div class="music-player"></div>
+        <div class="music-player">
+          <div class="music-player__controls">
+            <div class="controls__play">
+              <button class="btn"><i class="fa-solid fa-backward"></i></button
+              ><button class="btn">
+                <i class="fa-solid fa-play play-pause"></i></button
+              ><button class="btn"><i class="fa-solid fa-forward"></i></button>
+            </div>
+            <div class="controls__volume">
+              <button class="btn">
+                <i class="fa-solid fa-volume-high"></i>
+              </button>
+              <div class="slider volume__slider">
+                <div class="slider__progress progress__volume"></div>
+              </div>
+            </div>
+            <div class="controls__info">
+              <span class="info__song-text">David getta</span
+              ><span class="info__song-time">0:37 / 1:52</span>
+              <div class="slider duration__slider">
+                <div class="slider__progress"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="weather">
           <input
             type="text"

@@ -10,6 +10,7 @@ import { setLocalStorage, getLocalStorage } from './modules/localStorage'
 import { setBg } from './modules/bg'
 import { getWeather } from './modules/weather'
 import { getQuote } from './modules/quotes'
+import {} from './modules/player'
 
 // Variables
 let user = new User()

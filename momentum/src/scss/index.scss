@@ -71,14 +71,23 @@ body {
 }
 
 .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
   color: inherit;
+  text-align: center;
   background-color: transparent;
   cursor: pointer;
   transition: all 400ms ease;
 
   &:hover {
     color: $accent-color;
+  }
+
+  &:active {
+    opacity: 0.5;
+    transform: rotate(0deg);
   }
 }
 
@@ -87,6 +96,11 @@ body {
   justify-content: space-between;
   flex-wrap: wrap;
   min-height: 100px;
+
+  @media (max-width: 400px) {
+    flex-direction: column !important;
+    align-items: center;
+  }
 }
 
 .main {

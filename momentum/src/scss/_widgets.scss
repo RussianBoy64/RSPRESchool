@@ -97,8 +97,14 @@
     }
   }
 
-  @media (max-width: 340px) {
+  @media (max-width: 400px) {
+    margin-top: 15px;
     text-align: center;
+
+    .weather__error-container,
+    .weather__description-container {
+      position: relative;
+    }
 
     .weather__city {
       text-align: center;
@@ -121,11 +127,6 @@
     &:hover {
       transform: rotate(360deg);
     }
-
-    &:active {
-      opacity: 0.5;
-      transform: rotate(0deg);
-    }
   }
 
   .quote {
@@ -136,6 +137,97 @@
     }
     .quote-author {
       font-size: 0.8em;
+    }
+  }
+}
+
+// PLAYER
+
+.music-player {
+  width: 100%;
+  max-width: 250px;
+
+  @media (max-width: 500px) {
+    max-width: 200px;
+  }
+
+  &__controls {
+    @extend %flex-row;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 1.2em;
+
+    @media (max-width: 500px) {
+      flex-direction: column !important;
+    }
+
+    .controls__play {
+      @extend %flex-row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+
+      @media (max-width: 500px) {
+        flex-grow: 1;
+      }
+
+      .play-pause {
+        font-size: 1.5em;
+      }
+    }
+
+    .controls__volume {
+      @extend %flex-row;
+      align-items: center;
+      flex-wrap: nowrap;
+      flex-grow: 1;
+      gap: 5px;
+    }
+
+    .controls__info {
+      @extend %flex-row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 5px;
+      width: 100%;
+      font-size: 0.7em;
+    }
+  }
+
+  .slider {
+    width: 100%;
+    height: 10px;
+    border-radius: 5px;
+    background-color: $primary-color;
+
+    &__progress {
+      position: relative;
+      width: 50%;
+      height: 100%;
+      border-radius: 5px;
+      background-color: $accent-color;
+    }
+
+    .progress__volume {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        box-shadow: 0 0 3px #990073;
+        background-color: $accent-color;
+        transform: translate(50%, -2.5px);
+      }
+    }
+
+    &.duration__slider {
+      min-width: 100%;
     }
   }
 }

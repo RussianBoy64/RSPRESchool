@@ -7,6 +7,8 @@ const prevSongBtn = document.querySelector('.prevSong')
 const nextSongBtn = document.querySelector('.nextSong')
 const volumeBtn = document.querySelector('.volume-btn')
 const volumeIcon = document.querySelector('.volume-icon')
+const volumeSlider = document.querySelector('.volume__slider')
+const volumeLevel = document.querySelector('.volume__level')
 
 function toggleAudio() {
   playerContainer.classList.toggle('show')
@@ -27,16 +29,18 @@ function loadPlaylist() {
   }
 }
 
-// PLAY/PAUSE HANDLERS
-
 const audio = new Audio()
 let isPlay = false
 let playNum = 0
 let volume = 0.75
+let volumeLevelWidth = volume * 100
+
+setVolumeLevel()
+
+// PLAY/PAUSE HANDLERS
 
 function playAudio() {
   audio.src = playList[playNum].src
-  audio.volume = volume
   if (!isPlay) {
     audio.currentTime = 0
     audio.play()
@@ -91,19 +95,52 @@ function nextSong() {
 
 // VOLUME HANDLERS
 
+function volumeIconSoundOn() {
+  volumeIcon.classList.remove('fa-volume-xmark')
+  volumeIcon.classList.add('fa-volume-high')
+}
+
+function volumeIconSoundOff() {
+  volumeIcon.classList.remove('fa-volume-high')
+  volumeIcon.classList.add('fa-volume-xmark')
+}
+
 function volumeToggle() {
   if (volumeIcon.classList.contains('fa-volume-high')) {
-    volumeIcon.classList.remove('fa-volume-high')
-    volumeIcon.classList.add('fa-volume-xmark')
+    volumeIconSoundOff()
     audio.volume = 0
+    volumeLevel.style.width = `0%`
   } else {
-    volumeIcon.classList.remove('fa-volume-xmark')
-    volumeIcon.classList.add('fa-volume-high')
+    volumeIconSoundOn()
     audio.volume = volume
+    setVolumeLevel()
   }
 }
 
-function volumeIconToggle() {}
+function volumeLevelHandler(event) {
+  const offsetX = event.offsetX
+  const volumeSliderWidth = volumeSlider.offsetWidth
+  if (0 < offsetX && offsetX < volumeSliderWidth) {
+    volume = +(offsetX / volumeSliderWidth).toFixed(2)
+    volumeLevelWidth = volume * 100
+  }
+
+  if (volumeLevelWidth < 5) {
+    volume = 0
+    volumeLevelWidth = 0
+    volumeIconSoundOff()
+    audio.volume = 0
+  } else {
+    volumeIconSoundOn()
+    audio.volume = volume
+  }
+
+  setVolumeLevel()
+}
+
+function setVolumeLevel() {
+  volumeLevel.style.width = `${volumeLevelWidth}%`
+}
 
 // LISTENNERS
 
@@ -116,5 +153,6 @@ audio.addEventListener('ended', nextSong)
 // VOLUME
 
 volumeBtn.addEventListener('click', volumeToggle)
+volumeSlider.addEventListener('click', volumeLevelHandler)
 
 export { toggleAudio, loadPlaylist }

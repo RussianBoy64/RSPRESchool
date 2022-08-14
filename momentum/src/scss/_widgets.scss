@@ -258,19 +258,16 @@
     height: 10px;
     border-radius: 5px;
     background-color: $primary-color;
+    cursor: pointer;
 
     &__progress {
       position: relative;
-      width: 50%;
       height: 100%;
       border-radius: 5px;
       background-color: $accent-color;
     }
 
-    .progress__volume {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-
+    .volume__level {
       &::after {
         content: '';
         position: absolute;
@@ -281,11 +278,20 @@
         box-shadow: 0 0 3px #990073;
         background-color: $accent-color;
         transform: translate(50%, -2.5px);
+        opacity: 0;
+
+        @extend %transition;
       }
     }
 
     &.duration__slider {
-      min-width: 100%;
+      width: 100%;
+    }
+
+    &:hover {
+      .volume__level:after {
+        opacity: 1;
+      }
     }
   }
 }

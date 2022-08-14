@@ -18,23 +18,28 @@ const volumeLevel = document.querySelector('.volume__level')
 const songInfo = document.querySelector('.controls__info')
 const currentSongTime = document.querySelector('.info__song-time')
 const currentSongText = document.querySelector('.info__song-text')
+const songDurationSlider = document.querySelector('.duration__slider')
+const songDurationProgress = document.querySelector('.song__currenttime')
 
 function toggleAudio() {
   playerContainer.classList.toggle('show')
 }
 
 function loadPlaylist() {
-  for (let song of playList) {
+  for (let i = 0; i < playList.length; i++) {
     const li = document.createElement('li')
     li.classList.add('playlist__item')
-    li.innerHTML = `<button class="btn">
+    li.innerHTML = `<button class="btn" data-number="${i}">
     <i class="fa-solid fa-play playBtn"></i>
   </button>
   <div class="playlist__item__song-info">
-    <span class="playlist__item__song-name">${song.title}</span
-    ><span class="playlist__item__song-duration">${song.duration}</span>
+    <span class="playlist__item__song-name">${playList[i].title}</span
+    ><span class="playlist__item__song-duration">${playList[i].duration}</span>
   </div>`
     playListContainer.append(li)
+
+    const playBtn = li.querySelector('button')
+    playBtn.addEventListener('click', playlistBtnClickHandler)
   }
 }
 
@@ -44,6 +49,7 @@ let playNum = 0
 let volume = 0.75
 let volumeLevelWidth = volume * 100
 
+// default player settings
 setVolumeLevel()
 showCurrentSongTime()
 showCurrentSong()
@@ -63,6 +69,7 @@ function playAudio() {
   } else {
     pauseIconSet(playPauseBtn)
     activeSongRemove()
+    songDurationProgress.style.width = `0%`
     audio.pause()
     isPlay = false
   }
@@ -106,6 +113,21 @@ function nextSong() {
   playNum = playNum === playList.length - 1 ? 0 : ++playNum
   isPlay = false
   playAudio()
+}
+
+function playlistBtnClickHandler(event) {
+  const eventBtn = this
+  const activeBtn = playListContainer.childNodes[playNum].childNodes[0]
+
+  if (activeBtn === eventBtn) {
+    playAudio()
+  } else {
+    activeSongRemove() // remove active style
+    hideCurrentSong()
+    playNum = +eventBtn.dataset.number // transform to number with '+'
+    isPlay = false
+    playAudio()
+  }
 }
 
 // VOLUME HANDLERS
@@ -163,6 +185,7 @@ function showCurrentSongTime() {
   const currentTime = getCurrentTime(audio.currentTime)
 
   currentSongTime.textContent = `${currentTime} / ${playList[playNum].duration}`
+  setSongSliderProgress()
 }
 
 function getCurrentTime(time) {
@@ -185,6 +208,18 @@ function hideCurrentSong() {
   currentSongText.textContent = ''
 }
 
+function setSongSliderProgress() {
+  const songProgress = Math.round((audio.currentTime / audio.duration) * 100)
+  songDurationProgress.style.width = `${songProgress}%`
+}
+
+function setCurrentSongTime(event) {
+  const sliderWidth = songDurationSlider.offsetWidth
+  const newTime = (event.offsetX / sliderWidth) * audio.duration
+
+  audio.currentTime = newTime
+}
+
 // LISTENNERS
 
 // PLAY/PAUSE
@@ -201,5 +236,6 @@ volumeSlider.addEventListener('click', volumeLevelHandler)
 //PROGRESS
 
 audio.addEventListener('timeupdate', showCurrentSongTime)
+songDurationSlider.addEventListener('click', setCurrentSongTime)
 
 export { toggleAudio, loadPlaylist }

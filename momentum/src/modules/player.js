@@ -2,13 +2,20 @@ import { playList } from './playList'
 
 const playerContainer = document.querySelector('.music-player')
 const playListContainer = document.querySelector('.playlist')
+
+// PLAY/PAUSE VARIABLES
 const playPauseBtn = document.querySelector('.play-pause')
 const prevSongBtn = document.querySelector('.prevSong')
 const nextSongBtn = document.querySelector('.nextSong')
+
+// VOLUME VARIABLES
 const volumeBtn = document.querySelector('.volume-btn')
 const volumeIcon = document.querySelector('.volume-icon')
 const volumeSlider = document.querySelector('.volume__slider')
 const volumeLevel = document.querySelector('.volume__level')
+
+// PROGRESS VARIABLES
+const currentSongTime = document.querySelector('.info__song-time')
 
 function toggleAudio() {
   playerContainer.classList.toggle('show')
@@ -36,11 +43,13 @@ let volume = 0.75
 let volumeLevelWidth = volume * 100
 
 setVolumeLevel()
+showCurrentSongTime()
 
 // PLAY/PAUSE HANDLERS
 
 function playAudio() {
   audio.src = playList[playNum].src
+  showCurrentSongTime()
   if (!isPlay) {
     audio.currentTime = 0
     audio.play()
@@ -142,6 +151,24 @@ function setVolumeLevel() {
   volumeLevel.style.width = `${volumeLevelWidth}%`
 }
 
+// PROGRESS HANDLERS
+
+function showCurrentSongTime() {
+  const currentTime = getCurrentTime(audio.currentTime)
+
+  currentSongTime.textContent = `${currentTime} / ${playList[playNum].duration}`
+}
+
+function getCurrentTime(time) {
+  let seconds = parseInt(time)
+  let minutes = parseInt(seconds / 60)
+  seconds = seconds % 60 // start with 0 every minute
+  let currentSeconds = seconds.toString().padStart(2, 0)
+  let currentMinutes = minutes.toString().padStart(2, 0)
+
+  return `${currentMinutes}:${currentSeconds}`
+}
+
 // LISTENNERS
 
 // PLAY/PAUSE
@@ -154,5 +181,9 @@ audio.addEventListener('ended', nextSong)
 
 volumeBtn.addEventListener('click', volumeToggle)
 volumeSlider.addEventListener('click', volumeLevelHandler)
+
+//PROGRESS
+
+audio.addEventListener('timeupdate', showCurrentSongTime)
 
 export { toggleAudio, loadPlaylist }

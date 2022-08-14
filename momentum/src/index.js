@@ -10,7 +10,7 @@ import { setLocalStorage, getLocalStorage } from './modules/localStorage'
 import { setBg } from './modules/bg'
 import { getWeather } from './modules/weather'
 import { getQuote } from './modules/quotes'
-import {} from './modules/player'
+import { toggleAudio, loadPlaylist } from './modules/player'
 
 // Variables
 let user = new User()
@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setBg()
   getWeather(user.city)
   getQuote(user.options.locale)
+  toggleAudio()
+  loadPlaylist()
 })
 
 window.addEventListener('beforeunload', () => setLocalStorage(user))

@@ -147,6 +147,8 @@
   width: 100%;
   max-width: 250px;
 
+  @extend %hidden;
+
   @media (max-width: 500px) {
     max-width: 200px;
   }
@@ -172,6 +174,7 @@
       }
 
       .play-pause {
+        width: 1.5em;
         font-size: 1.5em;
       }
     }
@@ -192,6 +195,57 @@
       gap: 5px;
       width: 100%;
       font-size: 0.7em;
+    }
+  }
+
+  .playlist {
+    @extend %flex-column;
+    gap: 5px;
+    margin-top: 10px;
+
+    &__item {
+      @extend %flex-row;
+      align-items: center;
+      gap: 5px;
+      flex-wrap: nowrap;
+
+      .btn {
+        width: 1em;
+      }
+
+      &__song-info {
+        position: relative;
+        @extend %flex-row;
+        flex-grow: 1;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
+        font-size: 0.9em;
+
+        @extend %transition;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0%;
+          height: 2px;
+          background-color: $accent-color;
+          opacity: 0;
+          @extend %transition;
+        }
+      }
+
+      &.active {
+        .btn {
+          color: $accent-color;
+        }
+        .playlist__item__song-info::after {
+          width: 100%;
+          opacity: 1;
+        }
+      }
     }
   }
 

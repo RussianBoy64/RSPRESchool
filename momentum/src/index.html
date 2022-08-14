@@ -17,10 +17,13 @@
         <div class="music-player">
           <div class="music-player__controls">
             <div class="controls__play">
-              <button class="btn"><i class="fa-solid fa-backward"></i></button
-              ><button class="btn">
-                <i class="fa-solid fa-play play-pause"></i></button
-              ><button class="btn"><i class="fa-solid fa-forward"></i></button>
+              <button class="btn prevSong">
+                <i class="fa-solid fa-backward"></i></button
+              ><button class="btn play-pause">
+                <i class="fa-solid fa-play playBtn"></i></button
+              ><button class="btn nextSong">
+                <i class="fa-solid fa-forward"></i>
+              </button>
             </div>
             <div class="controls__volume">
               <button class="btn">
@@ -38,6 +41,7 @@
               </div>
             </div>
           </div>
+          <ul class="music-player__playlist playlist"></ul>
         </div>
         <div class="weather">
           <input

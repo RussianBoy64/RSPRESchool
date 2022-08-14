@@ -45,4 +45,4 @@ function getSlideNext() {
   setBg()
 }
 
-export { setBg, getSlidePrev, getSlideNext }
+export { setBg }

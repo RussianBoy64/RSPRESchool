@@ -21,4 +21,4 @@ const playList = [
   },
 ]
 
-export default { playList }
+export { playList }

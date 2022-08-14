@@ -3,9 +3,10 @@ import { playList } from './playList'
 const playerContainer = document.querySelector('.music-player')
 const playListContainer = document.querySelector('.playlist')
 const playPauseBtn = document.querySelector('.play-pause')
-const playPauseIcon = playPauseBtn.querySelector('i')
 const prevSongBtn = document.querySelector('.prevSong')
 const nextSongBtn = document.querySelector('.nextSong')
+const volumeBtn = document.querySelector('.volume-btn')
+const volumeIcon = document.querySelector('.volume-icon')
 
 function toggleAudio() {
   playerContainer.classList.toggle('show')
@@ -26,12 +27,16 @@ function loadPlaylist() {
   }
 }
 
+// PLAY/PAUSE HANDLERS
+
 const audio = new Audio()
 let isPlay = false
 let playNum = 0
+let volume = 0.75
 
 function playAudio() {
   audio.src = playList[playNum].src
+  audio.volume = volume
   if (!isPlay) {
     audio.currentTime = 0
     audio.play()
@@ -84,10 +89,32 @@ function nextSong() {
   playAudio()
 }
 
+// VOLUME HANDLERS
+
+function volumeToggle() {
+  if (volumeIcon.classList.contains('fa-volume-high')) {
+    volumeIcon.classList.remove('fa-volume-high')
+    volumeIcon.classList.add('fa-volume-xmark')
+    audio.volume = 0
+  } else {
+    volumeIcon.classList.remove('fa-volume-xmark')
+    volumeIcon.classList.add('fa-volume-high')
+    audio.volume = volume
+  }
+}
+
+function volumeIconToggle() {}
+
 // LISTENNERS
+
+// PLAY/PAUSE
 playPauseBtn.addEventListener('click', playAudio)
 prevSongBtn.addEventListener('click', prevSong)
 nextSongBtn.addEventListener('click', nextSong)
 audio.addEventListener('ended', nextSong)
+
+// VOLUME
+
+volumeBtn.addEventListener('click', volumeToggle)
 
 export { toggleAudio, loadPlaylist }

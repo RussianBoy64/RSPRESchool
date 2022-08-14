@@ -185,6 +185,10 @@
       flex-wrap: nowrap;
       flex-grow: 1;
       gap: 5px;
+
+      .volume-btn {
+        width: 1.5em;
+      }
     }
 
     .controls__info {

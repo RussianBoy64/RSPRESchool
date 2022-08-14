@@ -15,7 +15,9 @@ const volumeSlider = document.querySelector('.volume__slider')
 const volumeLevel = document.querySelector('.volume__level')
 
 // PROGRESS VARIABLES
+const songInfo = document.querySelector('.controls__info')
 const currentSongTime = document.querySelector('.info__song-time')
+const currentSongText = document.querySelector('.info__song-text')
 
 function toggleAudio() {
   playerContainer.classList.toggle('show')
@@ -44,6 +46,7 @@ let volumeLevelWidth = volume * 100
 
 setVolumeLevel()
 showCurrentSongTime()
+showCurrentSong()
 
 // PLAY/PAUSE HANDLERS
 
@@ -55,6 +58,7 @@ function playAudio() {
     audio.play()
     playIconSet(playPauseBtn)
     activeSongSet()
+    setTimeout(showCurrentSong, 200) //for smooth songTitle change
     isPlay = true
   } else {
     pauseIconSet(playPauseBtn)
@@ -90,6 +94,7 @@ function activeSongRemove() {
 
 function prevSong() {
   activeSongRemove() // remove active style
+  hideCurrentSong()
   playNum = playNum === 0 ? playList.length - 1 : --playNum
   isPlay = false
   playAudio()
@@ -97,6 +102,7 @@ function prevSong() {
 
 function nextSong() {
   activeSongRemove() // remove active style
+  hideCurrentSong()
   playNum = playNum === playList.length - 1 ? 0 : ++playNum
   isPlay = false
   playAudio()
@@ -167,6 +173,16 @@ function getCurrentTime(time) {
   let currentMinutes = minutes.toString().padStart(2, 0)
 
   return `${currentMinutes}:${currentSeconds}`
+}
+
+function showCurrentSong() {
+  currentSongText.textContent = playList[playNum].title
+  songInfo.classList.add('show')
+}
+
+function hideCurrentSong() {
+  songInfo.classList.remove('show')
+  currentSongText.textContent = ''
 }
 
 // LISTENNERS

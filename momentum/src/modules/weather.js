@@ -1,6 +1,31 @@
 import { user } from './../index'
 
-const apiKey = '0acf28d2a0bde48f52da4ba3eb20ecef'
+const APIKEY = '0acf28d2a0bde48f52da4ba3eb20ecef'
+const WEATHERINFO = {
+  ru: {
+    wind: 'Скорость ветра',
+    windMetric: 'м/с',
+    humidity: 'Влажность',
+  },
+  en: {
+    wind: 'Wind speed',
+    windMetric: 'mps',
+    humidity: 'Humidity',
+  },
+}
+const WEATHERERROR = {
+  en: {
+    error: 'Error',
+    400: 'nothing to geocode',
+    404: 'city not found',
+  },
+  ru: {
+    error: 'Ошибка',
+    400: 'город не введен',
+    404: 'город не найден',
+  },
+}
+const WEATHERPLASEHOLDER = { en: 'Enter city', ru: 'Введите город' }
 
 const weatherInput = document.querySelector('.weather__city')
 const errorContainer = document.querySelector('.weather__error-container')
@@ -15,12 +40,18 @@ const weatherDescription = document.querySelector('.weather__description')
 const weatherWind = document.querySelector('.weather__wind')
 const weatherHumidity = document.querySelector('.weather__humidity')
 
-async function getWeather(city = 'Saratov', lang = 'ru', units = 'metric') {
+async function getWeather(city, lang, units = 'metric') {
+  //check language
+  if (lang) {
+    lang = lang.slice(0, 2)
+  }
+
   // create link
-  const weatherLink = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&appid=${apiKey}&units=${units}`
+  const weatherLink = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&appid=${APIKEY}&units=${units}`
 
   // add city name in input
   weatherInput.value = city
+  weatherInput.placeholder = WEATHERPLASEHOLDER[lang]
 
   // fetching weather data
   const res = await fetch(weatherLink)
@@ -34,7 +65,7 @@ async function getWeather(city = 'Saratov', lang = 'ru', units = 'metric') {
       errorName.textContent = ''
       errorMessage.textContent = ''
     }
-    showWeather(data)
+    showWeather(data, lang)
   } else {
     // if error
     //hide weather description
@@ -47,28 +78,28 @@ async function getWeather(city = 'Saratov', lang = 'ru', units = 'metric') {
       weatherHumidity.textContent = ''
     }
 
-    showError(data, city)
+    showError(data, city, lang)
   }
 }
 
 function updateWeather() {
   user.city = weatherInput.value
-  getWeather(weatherInput.value)
+  getWeather(weatherInput.value, user.options.locale)
 }
 
-function showWeather(data) {
+function showWeather(data, lang) {
   if (descriptionContainer.classList.contains('show')) {
     descriptionContainer.classList.remove('show')
-    setTimeout(() => showWeather(data), 300)
+    setTimeout(() => showWeather(data, lang), 300)
   } else {
     //show weather description
     weatherIcon.className = `weather-icon owf owf-${data.weather[0].id}`
     temperature.textContent = `${Math.floor(data.main.temp)}°C`
     weatherDescription.textContent = data.weather[0].description
-    weatherWind.textContent = `Скорость ветра: ${Math.floor(
+    weatherWind.textContent = `${WEATHERINFO[lang].wind}: ${Math.floor(
       data.wind.speed
-    )} м/с`
-    weatherHumidity.textContent = `Влажность: ${Math.floor(
+    )} ${WEATHERINFO[lang].windMetric}`
+    weatherHumidity.textContent = `${WEATHERINFO[lang].humidity}: ${Math.floor(
       data.main.humidity
     )}%`
 
@@ -76,13 +107,13 @@ function showWeather(data) {
   }
 }
 
-function showError(data, city) {
+function showError(data, city, lang) {
   if (errorContainer.classList.contains('show')) {
     errorContainer.classList.remove('show')
-    setTimeout(() => showError(data, city), 300)
+    setTimeout(() => showError(data, city, lang), 300)
   } else {
-    errorName.textContent = `Error: ${data.cod}`
-    errorMessage.textContent = `'${city}' ${data.message}`
+    errorName.textContent = `${WEATHERERROR[lang].error}: ${data.cod}`
+    errorMessage.textContent = `'${city}' ${WEATHERERROR[lang][data.cod]}`
 
     errorContainer.classList.add('show')
   }

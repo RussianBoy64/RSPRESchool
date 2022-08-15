@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
   showGreeting(user.options.locale)
   setUserName(user)
   setBg()
-  getWeather(user.city)
+  getWeather(user.city, user.options.locale)
   getQuote(user.options.locale)
   toggleAudio()
   loadPlaylist()

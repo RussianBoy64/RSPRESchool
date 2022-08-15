@@ -3,7 +3,7 @@ class User {
     this.name = !name ? '' : name
     this.city = !city ? 'Saratov' : city
     this.options = {
-      locale: 'ru-RU',
+      locale: 'en-US',
       time: true,
       date: true,
     }

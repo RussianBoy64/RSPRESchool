@@ -3,6 +3,8 @@ const GREETING = {
   'en-US': ['Good night,', 'Good morning,', 'Good afternoon,', 'Good evening,'],
   'ru-RU': ['Доброй ночи,', 'Доброе утро,', 'Добрый день,', 'Добрый вечер,'],
 }
+const PLACEHOLDER = { 'en-US': 'Enter your name', 'ru-RU': 'Введите имя' }
+
 const MINLENGTH = 13
 const MAXLENGTH = 15
 
@@ -20,6 +22,7 @@ function getTimeOfDay(hours) {
 function showGreeting(locale, hours) {
   const currentDayTime = getTimeOfDay(hours)
   greetingElement.textContent = GREETING[locale][currentDayTime]
+  nameInput.placeholder = PLACEHOLDER[locale]
 }
 
 function setUserName(user) {

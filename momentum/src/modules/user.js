@@ -6,6 +6,8 @@ class User {
       locale: 'en-US',
       time: true,
       date: true,
+      bgSrc: 'GitHub',
+      keyword: null,
     }
   }
 }

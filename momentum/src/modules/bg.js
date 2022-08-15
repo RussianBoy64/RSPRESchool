@@ -72,10 +72,14 @@ function getGitHubImg() {
 
 async function getUnsplashImg() {
   // if keyword for search empty use current day time
-  const keyword = user.options.keyword || TIMEOFDAY[getTimeOfDay()]
+  let keywords = user.options.keyword || TIMEOFDAY[getTimeOfDay()]
+
+  if (keywords instanceof Array) {
+    keywords = expandUnsplashKeywords(keywords)
+  }
+
   const srclink =
-    UNSPLASHLINK +
-    `query=${keyword}&orientation=landscape&client_id=${UNSPLASHKEY}`
+    UNSPLASHLINK + `${keywords}&orientation=landscape&client_id=${UNSPLASHKEY}`
 
   const data = await fetch(srclink)
   const imgData = await data.json()
@@ -84,12 +88,24 @@ async function getUnsplashImg() {
   return imgLink
 }
 
+function expandUnsplashKeywords(keywords) {
+  return keywords.reduce((acc, keyword) => {
+    return acc + `query=${keyword}||`
+  }, '')
+}
+
 async function getFlickrImg() {
   // if keyword for search empty use current day time
-  const keyword = user.options.keyword || TIMEOFDAY[getTimeOfDay()]
+  let keywords = user.options.keyword || TIMEOFDAY[getTimeOfDay()]
+
+  if (keywords instanceof Array) {
+    keywords = expandFlickrKeywords(keywords)
+  }
+
+  console.log(keywords)
   const srclink =
     FLICKRLINK +
-    `?method=flickr.photos.search&api_key=${FLICKRKEY}&tags=${keyword}&extras=url_l&per_page=100&page=1&format=json&nojsoncallback=1`
+    `?method=flickr.photos.search&api_key=${FLICKRKEY}&tags=${keywords}&tag_mode=any&extras=url_l&per_page=200&page=1&format=json&nojsoncallback=1`
 
   const data = await fetch(srclink)
   const imgData = await data.json()
@@ -105,6 +121,10 @@ function filterImg(imgArray) {
   })
 
   return filteredImgs
+}
+
+function expandFlickrKeywords(keywords) {
+  return keywords.join(',')
 }
 
 export { setBg }

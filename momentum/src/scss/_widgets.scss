@@ -115,7 +115,7 @@
 // QUOTE
 
 .quote-container {
-  margin-bottom: 10px;
+  flex-grow: 2;
   text-align: center;
 
   @extend %hidden;
@@ -298,5 +298,62 @@
         opacity: 1;
       }
     }
+  }
+}
+
+// SETTINGS
+
+.settings {
+  position: relative;
+  z-index: 10;
+
+  &__btn {
+    font-size: 1.2em;
+
+    &:hover {
+      transform: rotate(90deg) scale(1.2);
+    }
+
+    &:active {
+      transform: scale(1);
+    }
+
+    &.active {
+      color: $accent-color;
+      font-size: 1.7em;
+      animation-name: infiniteRotate;
+      animation-duration: 3000ms;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+
+      &:hover {
+        transform: scale(1.5);
+      }
+    }
+  }
+
+  &__container {
+    @extend %hidden;
+
+    position: absolute;
+    z-index: -1;
+    bottom: 0.7em;
+    left: 0.7em;
+    width: calc(100% - 0.7em);
+    height: calc(100% - 0.7em);
+    border-radius: 10px;
+    background-color: $primary-color;
+  }
+}
+
+// ANIMATION
+
+@keyframes infiniteRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
   }
 }

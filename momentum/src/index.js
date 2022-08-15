@@ -11,6 +11,7 @@ import { setBg } from './modules/bg'
 import { getWeather } from './modules/weather'
 import { getQuote } from './modules/quotes'
 import { toggleAudio, loadPlaylist } from './modules/player'
+import { settingsToggle } from './modules/settings'
 
 // Variables
 let user = new User()

@@ -143,16 +143,13 @@ body {
 }
 
 .footer {
-  @extend %flex-column;
-  align-items: center;
-  justify-content: flex-end;
-  min-height: 100px;
-
-  .footer-inner {
-    @extend %flex-row;
-    align-items: center;
-    justify-content: space-between;
-  }
+  // @extend %flex-row;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  align-items: flex-end;
+  gap: 10px;
+  width: 100%;
+  min-height: 150px;
 }
 
 .backdrop {

@@ -9,9 +9,13 @@ function getDate(locale, date) {
   return date.toLocaleDateString(locale, options)
 }
 
-function showDate(locale, date) {
+function updateDate(locale, date) {
   const currentDate = getDate(locale, date)
   dateElement.textContent = currentDate
 }
 
-export { showDate }
+function showDate() {
+  dateElement.classList.add('show')
+}
+
+export { showDate, updateDate, dateElement }

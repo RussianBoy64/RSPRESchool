@@ -1,14 +1,11 @@
 function setLocalStorage(user) {
-  localStorage.setItem('name', user.name)
-  localStorage.setItem('city', user.city)
+  const json = JSON.stringify(user)
+  localStorage.setItem('user', json)
 }
 
-function getLocalStorage(user) {
-  const name = localStorage.getItem('name')
-  const city = localStorage.getItem('city')
-
-  if (name) user.name = name
-  if (city) user.city = city
+function getLocalStorage() {
+  const json = localStorage.getItem('user')
+  const user = JSON.parse(json)
 
   return user
 }

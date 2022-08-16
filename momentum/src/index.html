@@ -43,7 +43,7 @@
           </div>
           <ul class="music-player__playlist playlist"></ul>
         </div>
-        <div class="weather show">
+        <div class="weather">
           <input
             type="text"
             name="city"
@@ -66,9 +66,9 @@
         </div>
       </header>
       <main class="main">
-        <time class="time show">00:00:00</time>
-        <span class="date show"></span>
-        <div class="greeting-container show">
+        <time class="time">00:00:00</time>
+        <span class="date"></span>
+        <div class="greeting-container">
           <span class="greeting"></span
           ><input
             class="name"
@@ -92,84 +92,59 @@
           </button>
           <div class="settings__container">
             <form class="settings__form">
-              <label class="language-label"
-                >Language
+              <div class="settings__item">
+                <label class="language-label" for="language">Language </label>
                 <select type="select" id="language" name="lang" size="1">
                   <option value="en-US">EN</option>
                   <option value="ru-RU">RU</option>
-                </select></label
-              >
-              <label class="bgSrc-label"
-                >Background src
-                <select type="select" id="bgSrc" name="bgSrc" size="1">
+                </select>
+              </div>
+              <div class="settings__item">
+                <label class="bgSrc-label" for="bgSrc">Background src </label
+                ><select type="select" id="bgSrc" name="bgSrc" size="1">
                   <option value="GitHub">GitHub</option>
                   <option value="Unsplash">Unsplash</option>
                   <option value="Flickr">Flickr</option>
-                </select></label
-              >
-              <label class="bgTheme-label"
-                >Background theme
-                <input
+                </select>
+              </div>
+              <div class="settings__item bgTheme-container">
+                <label class="bgTheme-label" for="bgTag"
+                  >Background theme </label
+                ><input
                   type="text"
                   id="bgTag"
                   name="bgTag"
                   placeholder="Enter tag"
                   maxlength="15"
-              /></label>
+                />
+              </div>
               <span class="settings__title">Show</span>
               <div class="settings__inner">
-                <label class="time-label"
-                  >Time
-                  <input
-                    type="checkbox"
-                    id="timeStg"
-                    name="timeStg"
-                    value="true"
-                /></label>
-
-                <label class="date-label"
-                  >Date
-                  <input
-                    type="checkbox"
-                    id="dateStg"
-                    name="dateStg"
-                    value="true"
-                /></label>
-
-                <label class="greeting-label"
-                  >Greeting<input
-                    type="checkbox"
-                    id="greetingStg"
-                    name="greetingStg"
-                    value="true"
-                /></label>
-
-                <label class="quote-label"
-                  >Quote
-                  <input
-                    type="checkbox"
-                    id="quoteStg"
-                    name="quoteStg"
-                    value="true"
-                /></label>
-
-                <label class="weather-label"
-                  >Weather
-                  <input
-                    type="checkbox"
-                    id="weatherStg"
-                    name="weatherStg"
-                    value="true"
-                /></label>
-
-                <label class="audio-label"
-                  >Audio
-                  <input
-                    type="checkbox"
-                    id="audioStg"
-                    name="audioStg"
-                    value="true"
-                /></label>
+                <div class="settings__item">
+                  <label class="time-label" for="timeStg">Time</label
+                  ><input type="checkbox" id="timeStg" name="timeStg" />
+                </div>
+                <div class="settings__item">
+                  <label class="date-label" for="dateStg">Date</label
+                  ><input type="checkbox" id="dateStg" name="dateStg" />
+                </div>
+                <div class="settings__item">
+                  <label class="greeting-label" for="greetingStg"
+                    >Greeting</label
+                  ><input type="checkbox" id="greetingStg" name="greetingStg" />
+                </div>
+                <div class="settings__item">
+                  <label class="quote-label" for="quoteStg">Quote</label
+                  ><input type="checkbox" id="quoteStg" name="quoteStg" />
+                </div>
+                <div class="settings__item">
+                  <label class="weather-label" for="weatherStg">Weather</label
+                  ><input type="checkbox" id="weatherStg" name="weatherStg" />
+                </div>
+                <div class="settings__item">
+                  <label class="audio-label" for="audioStg">Audio</label
+                  ><input type="checkbox" id="audioStg" name="audioStg" />
+                </div>
               </div>
               <button type="submit" class="btn settings__submit-btn">
                 Accept

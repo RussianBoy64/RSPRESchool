@@ -37,6 +37,6 @@ async function getQuote(locale, id) {
   showQuote(qouteData)
 }
 
-changeQuoteBtn.addEventListener('click', () => getQuote(user.options.locale))
+changeQuoteBtn.addEventListener('click', () => getQuote(user.locale))
 
-export { getQuote }
+export { getQuote, qouteContainer, quoteId }

@@ -27,6 +27,7 @@ const WEATHERERROR = {
 }
 const WEATHERPLASEHOLDER = { en: 'Enter city', ru: 'Введите город' }
 
+const weatherElement = document.querySelector('.weather')
 const weatherInput = document.querySelector('.weather__city')
 const errorContainer = document.querySelector('.weather__error-container')
 const errorName = document.querySelector('.weather__error-name')
@@ -80,11 +81,13 @@ async function getWeather(city, lang, units = 'metric') {
 
     showError(data, city, lang)
   }
+
+  weatherElement.classList.add('show')
 }
 
 function updateWeather() {
   user.city = weatherInput.value
-  getWeather(weatherInput.value, user.options.locale)
+  getWeather(weatherInput.value, user.locale)
 }
 
 function showWeather(data, lang) {
@@ -121,4 +124,4 @@ function showError(data, city, lang) {
 
 weatherInput.addEventListener('change', updateWeather)
 
-export { getWeather }
+export { getWeather, weatherElement }

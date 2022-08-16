@@ -9,6 +9,7 @@ const MINLENGTH = 13
 const MAXLENGTH = 15
 
 const greetingElement = document.querySelector('.greeting')
+const greetingContainer = document.querySelector('.greeting-container')
 const nameInput = document.querySelector('.name')
 
 function getTimeOfDay(hours) {
@@ -19,10 +20,14 @@ function getTimeOfDay(hours) {
   return Math.floor(hours / 6)
 }
 
-function showGreeting(locale, hours) {
+function updateGreeting(locale, hours) {
   const currentDayTime = getTimeOfDay(hours)
   greetingElement.textContent = GREETING[locale][currentDayTime]
   nameInput.placeholder = PLACEHOLDER[locale]
+}
+
+function showGreeting() {
+  greetingContainer.classList.add('show')
 }
 
 function setUserName(user) {
@@ -50,4 +55,11 @@ function setUserName(user) {
   })
 }
 
-export { showGreeting, setUserName, getTimeOfDay, TIMEOFDAY }
+export {
+  showGreeting,
+  updateGreeting,
+  setUserName,
+  getTimeOfDay,
+  TIMEOFDAY,
+  greetingContainer,
+}

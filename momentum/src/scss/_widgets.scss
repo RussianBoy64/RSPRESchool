@@ -380,12 +380,16 @@
     gap: 5px;
     font-size: 0.7em;
 
-    label {
+    .settings__item {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 5px;
       width: 100%;
+    }
+
+    .bgTheme-container {
+      @extend %hidden;
     }
   }
 

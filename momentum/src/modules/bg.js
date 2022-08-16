@@ -24,11 +24,11 @@ async function setBg() {
   // create img
   const bgImg = new Image()
 
-  if (user.options.bgSrc === 'GitHub') {
+  if (user.bgSrc === 'GitHub') {
     bgImg.src = getGitHubImg()
-  } else if (user.options.bgSrc === 'Unsplash') {
+  } else if (user.bgSrc === 'Unsplash') {
     bgImg.src = await getUnsplashImg()
-  } else if (user.options.bgSrc === 'Flickr') {
+  } else if (user.bgSrc === 'Flickr') {
     bgImg.src = await getFlickrImg()
   }
 
@@ -72,7 +72,8 @@ function getGitHubImg() {
 
 async function getUnsplashImg() {
   // if keyword for search empty use current day time
-  let keywords = user.options.keyword || TIMEOFDAY[getTimeOfDay()]
+  let keywords =
+    user.keyword.length === 0 ? TIMEOFDAY[getTimeOfDay()] : user.keyword
 
   if (keywords instanceof Array) {
     keywords = expandUnsplashKeywords(keywords)
@@ -96,13 +97,13 @@ function expandUnsplashKeywords(keywords) {
 
 async function getFlickrImg() {
   // if keyword for search empty use current day time
-  let keywords = user.options.keyword || TIMEOFDAY[getTimeOfDay()]
+  let keywords =
+    user.keyword.length === 0 ? TIMEOFDAY[getTimeOfDay()] : user.keyword
 
   if (keywords instanceof Array) {
     keywords = expandFlickrKeywords(keywords)
   }
 
-  console.log(keywords)
   const srclink =
     FLICKRLINK +
     `?method=flickr.photos.search&api_key=${FLICKRKEY}&tags=${keywords}&tag_mode=any&extras=url_l&per_page=200&page=1&format=json&nojsoncallback=1`

@@ -21,8 +21,8 @@ const currentSongText = document.querySelector('.info__song-text')
 const songDurationSlider = document.querySelector('.duration__slider')
 const songDurationProgress = document.querySelector('.song__currenttime')
 
-function toggleAudio() {
-  playerContainer.classList.toggle('show')
+function showAudio() {
+  playerContainer.classList.add('show')
 }
 
 function loadPlaylist() {
@@ -238,4 +238,4 @@ volumeSlider.addEventListener('click', volumeLevelHandler)
 audio.addEventListener('timeupdate', showCurrentSongTime)
 songDurationSlider.addEventListener('click', setCurrentSongTime)
 
-export { toggleAudio, loadPlaylist }
+export { showAudio, loadPlaylist, playerContainer }

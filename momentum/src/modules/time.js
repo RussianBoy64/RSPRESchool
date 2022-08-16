@@ -27,11 +27,14 @@ function getTime(locale) {
 
   return currentTime
 }
-
-function showTime(locale) {
-  timeElement.textContent = getTime(locale)
-
-  setTimeout(() => showTime(locale), 1000)
+function showTime() {
+  timeElement.classList.add('show')
 }
 
-export { showTime }
+function updateTime(locale) {
+  timeElement.textContent = getTime(locale)
+
+  setTimeout(() => updateTime(locale), 1000)
+}
+
+export { updateTime, showTime, timeElement }

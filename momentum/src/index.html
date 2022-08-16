@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/favicon.ico" />
+    <script
+      src="https://kit.fontawesome.com/7413ca59d2.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Momentum</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <div class="music-player">
+          <div class="music-player__controls">
+            <div class="controls__play">
+              <button class="btn prevSong">
+                <i class="fa-solid fa-backward"></i></button
+              ><button class="btn play-pause">
+                <i class="fa-solid fa-play playBtn"></i></button
+              ><button class="btn nextSong">
+                <i class="fa-solid fa-forward"></i>
+              </button>
+            </div>
+            <div class="controls__volume">
+              <button class="btn volume-btn">
+                <i class="fa-solid fa-volume-high volume-icon"></i>
+              </button>
+              <div class="slider volume__slider">
+                <div class="slider__progress volume__level"></div>
+              </div>
+            </div>
+            <div class="controls__info">
+              <span class="info__song-text"></span
+              ><span class="info__song-time"></span>
+              <div class="slider duration__slider">
+                <div class="slider__progress song__currenttime"></div>
+              </div>
+            </div>
+          </div>
+          <ul class="music-player__playlist playlist"></ul>
+        </div>
+        <div class="weather">
+          <input
+            type="text"
+            name="city"
+            class="weather__city"
+            placeholder="Enter city"
+          />
+          <div class="weather__error-container">
+            <span class="weather__error-name"></span>
+            <span class="weather__error-message"></span>
+          </div>
+          <div class="weather__description-container">
+            <div class="weather__row">
+              <span class="weather__temperature"></span
+              ><i class="weather-icon owf"></i>
+            </div>
+            <span class="weather__description"></span>
+            <span class="weather__wind"></span>
+            <span class="weather__humidity"></span>
+          </div>
+        </div>
+      </header>
+      <main class="main">
+        <time class="time">00:00:00</time>
+        <span class="date"></span>
+        <div class="greeting-container">
+          <span class="greeting"></span
+          ><input
+            class="name"
+            type="text"
+            name="name"
+            placeholder="[Enter your name]"
+          />
+        </div>
+        <div class="slider">
+          <button class="btn slider__btn btn-left">
+            <i class="fa-solid fa-chevron-left"></i></button
+          ><button class="btn slider__btn btn-right">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </main>
+      <footer class="footer">
+        <div class="settings">
+          <button class="btn settings__btn">
+            <i class="fa-solid fa-gear settings__icon"></i>
+          </button>
+          <div class="settings__container">
+            <from class="settings__form" action="#"></from>
+          </div>
+        </div>
+        <div class="quote-container">
+          <button class="btn quote-change">
+            <i class="fa-solid fa-rotate"></i>
+          </button>
+          <div class="quote">
+            <p class="quote-text"></p>
+            <span class="quote-author"></span>
+          </div>
+        </div>
+        <div class="author-info">
+          <div class="author-info__item">
+            <a href="https://rs.school/js/"
+              ><img
+                src="https://rs.school/images/rs_school_js.svg"
+                alt="RS School"
+            /></a>
+          </div>
+          <div class="author-info__item">
+            <span>2022</span>
+          </div>
+          <div class="author-info__item">
+            <div class="github-link">
+              <a href="https://github.com/RussianBoy64"
+                ><i class="fa-brands fa-github github-icon"></i>RussianBoy64</a
+              >
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <div class="backdrop"></div>
+  </body>
+</html>

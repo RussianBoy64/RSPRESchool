@@ -47,7 +47,7 @@ async function getWeather(city, lang, units = 'metric') {
   }
 
   // create link
-  const weatherLink = `http://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&appid=${APIKEY}&units=${units}`
+  const weatherLink = `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&appid=${APIKEY}&units=${units}`
 
   // add city name in input
   weatherInput.value = city

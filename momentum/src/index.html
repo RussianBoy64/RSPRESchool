@@ -43,7 +43,7 @@
           </div>
           <ul class="music-player__playlist playlist"></ul>
         </div>
-        <div class="weather">
+        <div class="weather show">
           <input
             type="text"
             name="city"
@@ -66,9 +66,9 @@
         </div>
       </header>
       <main class="main">
-        <time class="time">00:00:00</time>
-        <span class="date"></span>
-        <div class="greeting-container">
+        <time class="time show">00:00:00</time>
+        <span class="date show"></span>
+        <div class="greeting-container show">
           <span class="greeting"></span
           ><input
             class="name"
@@ -92,56 +92,88 @@
           </button>
           <div class="settings__container">
             <form class="settings__form">
-              <label for="language">Language</label>
-              <select type="select" id="language" name="lang" size="1">
-                <option value="en-US">EN</option>
-                <option value="ru-RU">RU</option>
-              </select>
-              <label for="bgSrc">Background src</label>
-              <select type="select" id="bgSrc" name="bgSrc" size="1">
-                <option value="GitHub">GitHub</option>
-                <option value="Unsplash">Unsplash</option>
-                <option value="Flickr">Flickr</option>
-              </select>
-              <label for="bgTag">Background theme</label>
-              <input
-                type="text"
-                id="bgTag"
-                name="bgTag"
-                placeholder="Enter search tag"
-              />
-              <label for="timeStg">Show time</label>
-              <input type="checkbox" id="timeStg" name="timeStg" value="true" />
-              <label for="dateStg">Show date</label>
-              <input type="checkbox" id="dateStg" name="dateStg" value="true" />
-              <label for="greetingStg">Show greeting</label>
-              <input
-                type="checkbox"
-                id="greetingStg"
-                name="greetingStg"
-                value="true"
-              />
-              <label for="quoteStg">Show quote</label>
-              <input
-                type="checkbox"
-                id="quoteStg"
-                name="quoteStg"
-                value="true"
-              />
-              <label for="weatherStg">Show weather</label>
-              <input
-                type="checkbox"
-                id="weatherStg"
-                name="weatherStg"
-                value="true"
-              />
-              <label for="audioStg">Show audio</label>
-              <input
-                type="checkbox"
-                id="audioStg"
-                name="audioStg"
-                value="true"
-              />
+              <label class="language-label"
+                >Language
+                <select type="select" id="language" name="lang" size="1">
+                  <option value="en-US">EN</option>
+                  <option value="ru-RU">RU</option>
+                </select></label
+              >
+              <label class="bgSrc-label"
+                >Background src
+                <select type="select" id="bgSrc" name="bgSrc" size="1">
+                  <option value="GitHub">GitHub</option>
+                  <option value="Unsplash">Unsplash</option>
+                  <option value="Flickr">Flickr</option>
+                </select></label
+              >
+              <label class="bgTheme-label"
+                >Background theme
+                <input
+                  type="text"
+                  id="bgTag"
+                  name="bgTag"
+                  placeholder="Enter tag"
+                  maxlength="15"
+              /></label>
+              <span class="settings__title">Show</span>
+              <div class="settings__inner">
+                <label class="time-label"
+                  >Time
+                  <input
+                    type="checkbox"
+                    id="timeStg"
+                    name="timeStg"
+                    value="true"
+                /></label>
+
+                <label class="date-label"
+                  >Date
+                  <input
+                    type="checkbox"
+                    id="dateStg"
+                    name="dateStg"
+                    value="true"
+                /></label>
+
+                <label class="greeting-label"
+                  >Greeting<input
+                    type="checkbox"
+                    id="greetingStg"
+                    name="greetingStg"
+                    value="true"
+                /></label>
+
+                <label class="quote-label"
+                  >Quote
+                  <input
+                    type="checkbox"
+                    id="quoteStg"
+                    name="quoteStg"
+                    value="true"
+                /></label>
+
+                <label class="weather-label"
+                  >Weather
+                  <input
+                    type="checkbox"
+                    id="weatherStg"
+                    name="weatherStg"
+                    value="true"
+                /></label>
+
+                <label class="audio-label"
+                  >Audio
+                  <input
+                    type="checkbox"
+                    id="audioStg"
+                    name="audioStg"
+                    value="true"
+                /></label>
+              </div>
+              <button type="submit" class="btn settings__submit-btn">
+                Accept
+              </button>
             </form>
           </div>
         </div>

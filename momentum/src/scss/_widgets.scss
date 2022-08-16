@@ -340,7 +340,8 @@
     bottom: 0.7em;
     left: 0.7em;
     width: calc(100% - 0.7em);
-    height: calc(100% - 0.7em);
+    // height: calc(100% - 0.7em);
+    color: black;
     border-radius: 10px;
     background-color: $primary-color;
   }

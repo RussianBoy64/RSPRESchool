@@ -91,7 +91,58 @@
             <i class="fa-solid fa-gear settings__icon"></i>
           </button>
           <div class="settings__container">
-            <from class="settings__form" action="#"></from>
+            <form class="settings__form">
+              <label for="language">Language</label>
+              <select type="select" id="language" name="lang" size="1">
+                <option value="en-US">EN</option>
+                <option value="ru-RU">RU</option>
+              </select>
+              <label for="bgSrc">Background src</label>
+              <select type="select" id="bgSrc" name="bgSrc" size="1">
+                <option value="GitHub">GitHub</option>
+                <option value="Unsplash">Unsplash</option>
+                <option value="Flickr">Flickr</option>
+              </select>
+              <label for="bgTag">Background theme</label>
+              <input
+                type="text"
+                id="bgTag"
+                name="bgTag"
+                placeholder="Enter search tag"
+              />
+              <label for="timeStg">Show time</label>
+              <input type="checkbox" id="timeStg" name="timeStg" value="true" />
+              <label for="dateStg">Show date</label>
+              <input type="checkbox" id="dateStg" name="dateStg" value="true" />
+              <label for="greetingStg">Show greeting</label>
+              <input
+                type="checkbox"
+                id="greetingStg"
+                name="greetingStg"
+                value="true"
+              />
+              <label for="quoteStg">Show quote</label>
+              <input
+                type="checkbox"
+                id="quoteStg"
+                name="quoteStg"
+                value="true"
+              />
+              <label for="weatherStg">Show weather</label>
+              <input
+                type="checkbox"
+                id="weatherStg"
+                name="weatherStg"
+                value="true"
+              />
+              <label for="audioStg">Show audio</label>
+              <input
+                type="checkbox"
+                id="audioStg"
+                name="audioStg"
+                value="true"
+              />
+            </form>
           </div>
         </div>
         <div class="quote-container">

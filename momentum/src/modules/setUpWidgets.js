@@ -1,4 +1,3 @@
-// import { user } from './../index'
 import { updateTime, showTime, timeElement } from './time'
 import { showDate, updateDate, dateElement } from './date'
 import {

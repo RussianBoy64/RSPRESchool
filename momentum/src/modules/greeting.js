@@ -27,7 +27,12 @@ function updateGreeting(locale, hours) {
 }
 
 function showGreeting() {
-  greetingContainer.classList.add('show')
+  if (greetingContainer.classList.contains('show')) {
+    greetingContainer.classList.remove('show')
+    setTimeout(() => showGreeting(), 300)
+  } else {
+    greetingContainer.classList.add('show')
+  }
 }
 
 function setUserName(user) {

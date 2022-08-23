@@ -1,21 +1,23 @@
 import styles from './scss/index.scss'
 
-import image from './assets/home.png'
+import { loadGame } from './modules/startGame'
 
-const createImage = (src) =>
-  new Promise((res, rej) => {
-    const img = new Image()
-    img.onload = () => res(img)
-    img.onerror = rej
-    img.src = src
-  })
+window.addEventListener('load', loadGame)
 
-async function render() {
-  const subHeader = document.createElement('h2')
-  subHeader.innerHTML = 'This elements was created by js'
-  const myImage = await createImage(image)
-  document.body.appendChild(subHeader)
-  document.body.appendChild(myImage)
-}
+// const createImage = (src) =>
+//   new Promise((res, rej) => {
+//     const img = new Image()
+//     img.onload = () => res(img)
+//     img.onerror = rej
+//     img.src = src
+//   })
 
-render()
+// async function render() {
+//   const subHeader = document.createElement('h2')
+//   subHeader.innerHTML = 'This elements was created by js'
+//   const myImage = await createImage(image)
+//   document.body.appendChild(subHeader)
+//   document.body.appendChild(myImage)
+// }
+
+// render()

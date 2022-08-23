@@ -2,9 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Spectral+SC:wght@300;400;600&display=swap');
 
 @import 'normalize';
+@import 'variables';
+@import 'authorInfo';
 
-%transition {
-  transition: all 300ms ease-in-out;
+%transitionSlow {
+  transition: all 600ms ease;
 }
 
 %flex-row {
@@ -17,11 +19,16 @@
   flex-direction: column;
 }
 
+%centered {
+  align-items: center;
+  justify-content: center;
+}
+
 %hidden {
   visibility: hidden;
   opacity: 0;
   transform: translateY(10px);
-  @extend %transition;
+  // @extend %transition;
 }
 
 body {
@@ -29,11 +36,117 @@ body {
   font-family: 'Spectral SC', serif;
   font-size: calc(15px + 0.390625vw);
   font-weight: 400;
-  // color: $primary-color;
+  color: $primary-accent;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  transition: all 700ms ease;
+
+  @extend %transitionSlow;
+}
+
+.wrapper {
+  position: relative;
+  @extend %flex-column;
+  @extend %centered;
+  width: 100%;
+  max-width: 1920px;
+  min-height: 100vh;
+  padding: 0 0.7em;
+}
+
+.backdrop {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, $bg-dark 0%, $bg-accent 100%);
+
+  @extend %transitionSlow;
+
+  &.transparent {
+    z-index: -1;
+    opacity: 0.7;
+  }
+}
+
+.loader {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  visibility: visible;
+
+  @extend %transitionSlow;
+  transform: translate(-50%, -50%);
+  animation: rotation 1s linear infinite;
+
+  &::after {
+    content: '';
+    box-sizing: border-box;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-bottom-color: $primary-accent;
+  }
+}
+
+.hidden {
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+.header {
+  @extend %flex-column;
+  @extend %centered;
+  min-height: 70px;
+  padding: 15px 0;
+
+  &__gameTitle {
+    opacity: 1;
+    visibility: visible;
+
+    @extend %transitionSlow;
+  }
+}
+
+.main {
+  @extend %flex-column;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+}
+
+.footer {
+  width: 100%;
+  min-height: 70px;
+  padding: 15px 0;
+}
+
+//KEY FRAMES
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 // input {

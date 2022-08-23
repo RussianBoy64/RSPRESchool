@@ -1,0 +1,49 @@
+@import 'level';
+
+.ancient,
+.deck,
+.game {
+  @extend %flex-column;
+  align-items: center;
+  padding: 1em;
+
+  @extend %transitionSlow;
+}
+
+.ancient,
+.deck {
+  flex: 1 0 250px;
+}
+
+.game {
+  flex: 10 0 250px;
+}
+
+.card {
+  position: relative;
+  width: 90%;
+  max-width: 300px;
+  border: 3px solid $primary-accent;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+
+  @extend %transitionSlow;
+
+  &:hover {
+    transform: scale(1.05);
+    border: 3px solid $primary-dark;
+    box-shadow: 0 0 15px $primary-accent;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    box-shadow: 0px 0px 50px 0px rgba(43, 8, 20, 0.54) inset;
+  }
+}

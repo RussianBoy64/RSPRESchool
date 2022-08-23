@@ -3,7 +3,6 @@ import image from '../assets/home.png'
 const body = document.querySelector('body')
 const backdrop = document.querySelector('.backdrop')
 const loader = document.querySelector('.loader')
-const gameTitle = document.querySelector('.header__gameTitle')
 
 function loadGame() {
   // create bgImg
@@ -15,7 +14,6 @@ function loadGame() {
     body.style.backgroundImage = `url(${bgImg.src})`
     backdrop.classList.add('transparent')
     loader.classList.add('hidden')
-    gameTitle.classList.remove('hidden')
   })
 }
 

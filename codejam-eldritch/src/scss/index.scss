@@ -48,13 +48,13 @@ body {
 }
 
 .wrapper {
-  position: relative;
   @extend %flex-column;
   @extend %centered;
   width: 100%;
   max-width: 1920px;
   min-height: 100vh;
-  padding: 0 0.7em;
+  margin: 0 auto;
+  padding: 0 1em;
 
   @extend %transitionSlow;
 }
@@ -71,14 +71,17 @@ body {
 
   &__gameTitle {
     text-transform: uppercase;
-    opacity: 1;
-    visibility: visible;
 
     @extend %transitionSlow;
+
+    @media (max-width: 400px) {
+      font-size: 1.5em;
+    }
   }
 }
 
 .main {
+  position: relative;
   @extend %flex-row;
   @extend %centered;
   flex-grow: 1;
@@ -88,6 +91,7 @@ body {
     @extend %flex-row;
     align-items: stretch;
     justify-content: space-between;
+    flex-wrap: wrap;
     gap: 10px;
     width: 100%;
   }

@@ -1,10 +1,12 @@
 import { domNodes } from './domNodes'
 
-function loadGame() {
-  domNodes.backdrop.classList.add('transparent')
-  domNodes.loader.classList.add('hidden')
-}
+import { removeLoader } from './loaderHandlers'
 
-function startGame() {}
+const { backdrop } = domNodes
+
+function loadGame() {
+  backdrop.classList.add('transparent')
+  removeLoader()
+}
 
 export { loadGame }

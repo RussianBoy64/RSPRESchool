@@ -20,13 +20,21 @@
         <div class="main__inner">
           <div class="column ancient">
             <h2 class="column__header">Ancient</h2>
-            <div class="card"><img src="./assets/Ancients/Cthulthu.png" alt="ancient" class="card__img"></div>
-            <div class="complexity"><span class="complexity__title">Medium</span>
-            <div class="complexity__level">
-              <i class="fa-solid fa-baby"></i>
-              <div class="level__progressBar"><div class="level__progress"></div></div>
-              <i class="fa-solid fa-skull"></i>
-            </div></div>
+            <img
+              src="./assets/Ancients/Cthulthu.png"
+              alt="ancient"
+              class="card__img"
+            />
+            <div class="complexity">
+              <span class="complexity__title">Medium</span>
+              <div class="complexity__level">
+                <i class="fa-solid fa-baby"></i>
+                <div class="level__progressBar">
+                  <div class="level__progress"></div>
+                </div>
+                <i class="fa-solid fa-skull"></i>
+              </div>
+            </div>
           </div>
           <div class="column deck">
             <h2 class="column__header">Deck</h2>
@@ -34,6 +42,70 @@
           <div class="column game">
             <h2 class="column__header">Game</h2>
           </div>
+        </div>
+        <div class="settings">
+          <form action="#" class="settings__form">
+            <fieldset>
+              <legend>Choose ancient</legend>
+              <label for="azathoth">
+                <img
+                  src="./assets/Ancients/Azathoth.png"
+                  alt="azathoth"
+                  class="card__img"
+              /></label>
+              <input
+                type="radio"
+                name="ancient"
+                id="azathoth"
+                value="azathoth"
+              />
+              <label for="cthulhu"
+                ><img
+                  src="./assets/Ancients/Cthulthu.png"
+                  alt="cthulhu"
+                  class="card__img"
+              /></label>
+              <input type="radio" name="ancient" id="cthulhu" value="cthulhu" />
+              <label for="iogSothoth"
+                ><img
+                  src="./assets/Ancients/IogSothoth.png"
+                  alt="iogSothoth"
+                  class="card__img"
+              /></label>
+              <input
+                type="radio"
+                name="ancient"
+                id="iogSothoth"
+                value="iogSothoth"
+              />
+              <label for="shubNiggurath"
+                ><img
+                  src="./assets/Ancients/ShubNiggurath.png"
+                  alt="shubNiggurath"
+                  class="card__img"
+              /></label>
+              <input
+                type="radio"
+                name="ancient"
+                id="shubNiggurath"
+                value="shubNiggurath"
+              />
+            </fieldset>
+            <fieldset>
+              <legend>Choose complexity</legend>
+              <label for="very-easy">1</label>
+              <input type="radio" name="complexity" id="very-easy" />
+              <label for="easy">2</label>
+              <input type="radio" name="complexity" id="easy" />
+              <label for="medium">3</label>
+              <input type="radio" name="complexity" id="medium" />
+              <label for="hard">4</label>
+              <input type="radio" name="complexity" id="hard" />
+              <label for="very-hard">5</label>
+              <input type="radio" name="complexity" id="very-hard" />
+            </fieldset>
+            <button type="submit">Shuffle</button>
+          </form>
         </div>
       </main>
       <footer class="footer">
@@ -55,11 +127,10 @@
               >
             </div>
           </div>
+        </div>
       </footer>
     </div>
-    <div class="backdrop">
-      <!-- <button class="btn"></button> -->
-    </div>
+    <div class="backdrop"></div>
     <span class="loader"></span>
   </body>
 </html>

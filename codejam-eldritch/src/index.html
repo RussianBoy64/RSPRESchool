@@ -26,7 +26,7 @@
               class="card__img"
             />
             <div class="complexity">
-              <span class="complexity__title">Medium</span>
+              <span class="complexity__title">Normal</span>
               <div class="complexity__level">
                 <i class="fa-solid fa-baby"></i>
                 <div class="level__progressBar">
@@ -45,27 +45,33 @@
         </div>
         <div class="settings">
           <form action="#" class="settings__form">
-            <fieldset>
+            <fieldset class="settings__ancients">
               <legend>Choose ancient</legend>
-              <label for="azathoth">
-                <img
-                  src="./assets/Ancients/Azathoth.png"
-                  alt="azathoth"
-                  class="card__img"
-              /></label>
               <input
                 type="radio"
                 name="ancient"
                 id="azathoth"
                 value="azathoth"
               />
+              <label for="azathoth">
+                <img
+                  src="./assets/Ancients/Azathoth.png"
+                  alt="azathoth"
+                  class="card__img"
+              /></label>
+              <input type="radio" name="ancient" id="cthulhu" value="cthulhu" />
               <label for="cthulhu"
                 ><img
                   src="./assets/Ancients/Cthulthu.png"
                   alt="cthulhu"
                   class="card__img"
               /></label>
-              <input type="radio" name="ancient" id="cthulhu" value="cthulhu" />
+              <input
+                type="radio"
+                name="ancient"
+                id="iogSothoth"
+                value="iogSothoth"
+              />
               <label for="iogSothoth"
                 ><img
                   src="./assets/Ancients/IogSothoth.png"
@@ -75,8 +81,8 @@
               <input
                 type="radio"
                 name="ancient"
-                id="iogSothoth"
-                value="iogSothoth"
+                id="shubNiggurath"
+                value="shubNiggurath"
               />
               <label for="shubNiggurath"
                 ><img
@@ -84,27 +90,21 @@
                   alt="shubNiggurath"
                   class="card__img"
               /></label>
-              <input
-                type="radio"
-                name="ancient"
-                id="shubNiggurath"
-                value="shubNiggurath"
-              />
             </fieldset>
-            <fieldset>
+            <fieldset class="settings__complexity">
               <legend>Choose complexity</legend>
-              <label for="very-easy">1</label>
               <input type="radio" name="complexity" id="very-easy" />
-              <label for="easy">2</label>
+              <label for="very-easy">Very easy</label>
               <input type="radio" name="complexity" id="easy" />
-              <label for="medium">3</label>
-              <input type="radio" name="complexity" id="medium" />
-              <label for="hard">4</label>
+              <label for="easy">Easy</label>
+              <input type="radio" name="complexity" id="normal" />
+              <label for="normal">Normal</label>
               <input type="radio" name="complexity" id="hard" />
-              <label for="very-hard">5</label>
+              <label for="hard">Hard</label>
               <input type="radio" name="complexity" id="very-hard" />
+              <label for="very-hard">Very Hard</label>
             </fieldset>
-            <button type="submit">Shuffle</button>
+            <button class="btn" type="submit">Shuffle</button>
           </form>
         </div>
       </main>

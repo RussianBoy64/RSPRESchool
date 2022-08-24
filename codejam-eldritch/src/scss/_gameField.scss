@@ -12,7 +12,8 @@
 
 .ancient,
 .deck {
-  flex: 1 2 10em;
+  flex: 1 1 8em;
+  max-width: 220px;
 }
 
 .game {
@@ -23,7 +24,6 @@
   position: relative;
   border: 3px solid $primary-accent;
   width: 100%;
-  max-width: 250px;
   border-radius: 10px;
   overflow: hidden;
   cursor: pointer;
@@ -34,6 +34,10 @@
     transform: scale(1.05);
     border: 3px solid $primary-dark;
     box-shadow: 0 0 15px $primary-accent;
+  }
+
+  &:active {
+    transform: scale(1);
   }
 
   &::after {

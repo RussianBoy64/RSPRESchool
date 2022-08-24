@@ -7,9 +7,14 @@
 @import 'gameField';
 @import 'loader';
 @import 'backdrop';
+@import 'buttons';
 
 %transitionSlow {
   transition: all 600ms ease;
+}
+
+%transition {
+  transition: all 300ms ease;
 }
 
 %flex-row {

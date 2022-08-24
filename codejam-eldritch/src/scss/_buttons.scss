@@ -1,0 +1,20 @@
+.btn {
+  padding: 0.4em 0.8em;
+  color: $primary-light;
+  text-transform: uppercase;
+  border: 2px solid $primary-accent;
+  background: transparent;
+  cursor: pointer;
+
+  @extend %transition;
+
+  &:hover {
+    color: $primary-accent;
+    background: $primary-dark;
+  }
+
+  &:active {
+    color: $primary-light;
+    border-color: $primary-light;
+  }
+}

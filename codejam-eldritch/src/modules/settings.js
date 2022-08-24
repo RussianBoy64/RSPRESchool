@@ -2,24 +2,25 @@ import { domNodes } from './domNodes'
 import ancientsData from '../data/ancients'
 import difficulties from '../data/difficulties'
 
+import { loadMythicDeck } from './mythicDeck'
+
 const {
   settings,
   settingsForm,
   ancientSettings,
   complexitySettings,
   submitBtn,
+  mainInner,
 } = domNodes
 
 async function loadAncientSettings() {
-  for (let ancient in ancientsData) {
-    if (ancientsData.hasOwnProperty(ancient)) {
-      //create nodes
-      const ancientInput = await createAncientInput(ancientsData[ancient])
-      const ancientLabel = await createAncientLabel(ancientsData[ancient])
-      //add nodes
-      ancientSettings.appendChild(ancientInput)
-      ancientSettings.appendChild(ancientLabel)
-    }
+  for (let ancient of ancientsData) {
+    //create nodes
+    const ancientInput = await createAncientInput(ancient)
+    const ancientLabel = await createAncientLabel(ancient)
+    //add nodes
+    ancientSettings.appendChild(ancientInput)
+    ancientSettings.appendChild(ancientLabel)
   }
 }
 
@@ -38,17 +39,12 @@ async function createAncientLabel(ancient) {
   label.setAttribute('for', `${ancient.id}`)
 
   //create cardsData
-  const img = new Image()
-  img.src = ancient.cardFace
+  const img = document.createElement('img')
+  img.setAttribute('src', `${ancient.cardFace}`)
+  img.setAttribute('alt', `${ancient.name}`)
+  img.className = 'card__img'
 
-  img.addEventListener('load', () => {
-    const imgElement = document.createElement('img')
-    imgElement.setAttribute('src', `${ancient.cardFace}`)
-    imgElement.setAttribute('alt', `${ancient.name}`)
-    imgElement.className = 'card__img'
-
-    label.appendChild(imgElement)
-  })
+  label.appendChild(img)
 
   return label
 }
@@ -77,14 +73,18 @@ function getData() {
   return { ancientValue, complexityValue }
 }
 
-function formSubmitHadler(e) {
+function dackShuffleHadnler(e) {
   e.preventDefault()
-
   const { ancientValue, complexityValue } = getData()
+
+  loadMythicDeck(ancientValue, complexityValue)
   // console.log(ancientValue, complexityValue)
+
+  settings.classList.remove('visible')
+  mainInner.classList.add('visible')
 }
 
 settingsForm.addEventListener('change', isFormValid)
-settingsForm.addEventListener('submit', formSubmitHadler)
+settingsForm.addEventListener('submit', dackShuffleHadnler)
 
 export { showSettings, loadAncientSettings }

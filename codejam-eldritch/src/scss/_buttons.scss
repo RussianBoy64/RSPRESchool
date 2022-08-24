@@ -5,6 +5,7 @@
   border: 2px solid $primary-accent;
   background: transparent;
   cursor: pointer;
+  opacity: 1;
 
   @extend %transition;
 
@@ -19,17 +20,19 @@
   }
 
   &[disabled] {
-    cursor: not-allowed;
-    border: none;
+    cursor: inherit;
+    opacity: 0.2;
 
     &:hover {
       color: $primary-light;
-      background: $primary-accent;
+      border-color: $primary-accent;
+      background: transparent;
     }
 
     &:active {
       color: $primary-light;
-      background: $primary-accent;
+      border-color: $primary-accent;
+      background: transparent;
     }
   }
 }

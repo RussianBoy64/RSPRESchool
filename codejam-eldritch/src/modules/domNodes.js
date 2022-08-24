@@ -13,6 +13,11 @@ const ancientSettings = document.querySelector('.settings__ancients')
 const complexitySettings = document.querySelector('.settings__complexity')
 const submitBtn = document.querySelector('.btn__submit')
 
+// MYTHIC DECK
+const mythicCard = document.querySelector('.mythic__card')
+const complexityTitle = document.querySelector('.complexity__title')
+const complexityLevel = document.querySelector('.level__progress')
+
 const domNodes = {
   body,
   backdrop,
@@ -25,6 +30,9 @@ const domNodes = {
   ancientSettings,
   complexitySettings,
   submitBtn,
+  mythicCard,
+  complexityTitle,
+  complexityLevel,
 }
 
 export { domNodes }

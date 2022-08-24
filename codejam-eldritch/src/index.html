@@ -44,10 +44,10 @@
           </div>
         </div>
         <div class="settings">
-          <form action="#" class="settings__form">
+          <form class="settings__form">
             <fieldset class="settings__ancients">
               <legend>Choose ancient</legend>
-              <input
+              <!-- <input
                 type="radio"
                 name="ancient"
                 id="azathoth"
@@ -89,22 +89,44 @@
                   src="./assets/Ancients/ShubNiggurath.png"
                   alt="shubNiggurath"
                   class="card__img"
-              /></label>
+              /></label> -->
             </fieldset>
             <fieldset class="settings__complexity">
               <legend>Choose complexity</legend>
-              <input type="radio" name="complexity" id="very-easy" />
+              <input
+                type="radio"
+                name="complexity"
+                id="very-easy"
+                value="very-easy"
+              />
               <label for="very-easy">Very easy</label>
-              <input type="radio" name="complexity" id="easy" />
+              <input type="radio" name="complexity" id="easy" value="easy" />
               <label for="easy">Easy</label>
-              <input type="radio" name="complexity" id="normal" />
+              <input
+                type="radio"
+                name="complexity"
+                id="normal"
+                value="normal"
+              />
               <label for="normal">Normal</label>
-              <input type="radio" name="complexity" id="hard" />
+              <input type="radio" name="complexity" id="hard" value="hard" />
               <label for="hard">Hard</label>
-              <input type="radio" name="complexity" id="very-hard" />
+              <input
+                type="radio"
+                name="complexity"
+                id="very-hard"
+                value="very-hard"
+              />
               <label for="very-hard">Very Hard</label>
             </fieldset>
-            <button class="btn" type="submit">Shuffle</button>
+            <button
+              class="btn btn__submit"
+              type="submit"
+              disabled
+              title="Please chose ancient and complexity"
+            >
+              Shuffle
+            </button>
           </form>
         </div>
       </main>

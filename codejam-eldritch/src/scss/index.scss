@@ -35,7 +35,6 @@
 %hidden {
   visibility: hidden;
   opacity: 0;
-  transform: translateY(10px);
 }
 
 body {
@@ -65,8 +64,14 @@ body {
 }
 
 .hidden {
+  transition: opacity 600ms ease !important;
   opacity: 0 !important;
   visibility: hidden !important;
+}
+
+.visible {
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .header {
@@ -99,6 +104,8 @@ body {
     flex-wrap: wrap;
     gap: 10px;
     width: 100%;
+
+    @extend %hidden;
   }
 }
 

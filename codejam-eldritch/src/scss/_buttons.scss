@@ -17,4 +17,19 @@
     color: $primary-light;
     border-color: $primary-light;
   }
+
+  &[disabled] {
+    cursor: not-allowed;
+    border: none;
+
+    &:hover {
+      color: $primary-light;
+      background: $primary-accent;
+    }
+
+    &:active {
+      color: $primary-light;
+      background: $primary-accent;
+    }
+  }
 }

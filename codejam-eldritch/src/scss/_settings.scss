@@ -8,6 +8,8 @@
   border-radius: 16px;
 
   transform: translate(-50%, -50%);
+  @extend %hidden;
+  @extend %transitionSlow;
 
   &__form {
     @extend %flex-column;

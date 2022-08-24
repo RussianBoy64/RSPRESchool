@@ -1,13 +1,17 @@
 import { domNodes } from './domNodes'
+import { showSettings } from './settings'
 
 const { loader } = domNodes
 
-function removeLoader() {
+function hideLoader() {
   loader.classList.add('hidden')
   //remove loader
-  loader.addEventListener('transitionend', () => {
-    loader.remove()
-  })
+  loader.addEventListener('transitionend', removeLoader)
 }
 
-export { removeLoader }
+function removeLoader() {
+  loader.remove()
+  showSettings()
+}
+
+export { hideLoader }

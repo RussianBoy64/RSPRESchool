@@ -19,6 +19,9 @@ const complexityTitle = document.querySelector('.complexity__title')
 const complexityLevel = document.querySelector('.level__progress')
 const ancientStageCards = document.querySelectorAll('.ancientStageCard')
 
+// GAME FIELD
+const gameStageCards = document.querySelectorAll('.gameStageCard')
+
 const domNodes = {
   body,
   backdrop,
@@ -35,6 +38,7 @@ const domNodes = {
   complexityTitle,
   complexityLevel,
   ancientStageCards,
+  gameStageCards,
 }
 
 export { domNodes }

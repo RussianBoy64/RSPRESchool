@@ -2,7 +2,7 @@ import { domNodes } from './domNodes'
 import ancientsData from '../data/ancients'
 import difficulties from '../data/difficulties'
 
-import { loadMythicDeck } from './mythicDeck'
+import { loadGameField } from './gameField'
 
 const {
   settings,
@@ -97,7 +97,6 @@ function isFormValid() {
     submitBtn.removeAttribute('disabled')
     submitBtn.removeAttribute('title')
   }
-  console.log(ancientId, complexityId)
 }
 
 function getData() {
@@ -114,8 +113,7 @@ function dackShuffleHadnler(e) {
   e.preventDefault()
   const { ancientId, complexityId } = getData()
 
-  loadMythicDeck(ancientId, complexityId)
-  // console.log(ancientValue, complexityValue)
+  loadGameField(ancientId, complexityId)
 
   settings.classList.remove('visible')
   mainInner.classList.add('visible')

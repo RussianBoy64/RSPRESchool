@@ -11,10 +11,7 @@ function getComplexityLevelById(complexityId) {
 
 function setAncientStageCards(ancient, ancientStageCards) {
   ancientStageCards.forEach((stageCard) => {
-    console.log(stageCard)
-    const cardInfoData = stageCard.dataset.cardinfo
-    console.log(cardInfoData)
-    const [stageData, colorData] = cardInfoData.split('_')
+    const [stageData, colorData] = stageCard.dataset.cardinfo.split('_')
     const stage = stageData + 'Stage'
     const color = colorData + 'Cards'
 

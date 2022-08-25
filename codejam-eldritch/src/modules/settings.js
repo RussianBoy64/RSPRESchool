@@ -91,30 +91,30 @@ function showSettings() {
 }
 
 function isFormValid() {
-  const { ancientId, complexityValue } = getData()
+  const { ancientId, complexityId } = getData()
 
-  if (ancientId && complexityValue) {
+  if (ancientId && complexityId) {
     submitBtn.removeAttribute('disabled')
     submitBtn.removeAttribute('title')
   }
-  console.log(ancientId, complexityValue)
+  console.log(ancientId, complexityId)
 }
 
 function getData() {
   const ancientId =
     document.querySelector('input[name="ancient"]:checked')?.value || false
 
-  const complexityValue =
+  const complexityId =
     document.querySelector('input[name="complexity"]:checked')?.value || false
 
-  return { ancientId, complexityValue }
+  return { ancientId, complexityId }
 }
 
 function dackShuffleHadnler(e) {
   e.preventDefault()
-  const { ancientId, complexityValue } = getData()
+  const { ancientId, complexityId } = getData()
 
-  loadMythicDeck(ancientId, complexityValue)
+  loadMythicDeck(ancientId, complexityId)
   // console.log(ancientValue, complexityValue)
 
   settings.classList.remove('visible')

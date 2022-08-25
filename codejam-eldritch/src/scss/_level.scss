@@ -2,6 +2,7 @@
   @extend %flex-column;
   align-items: center;
   margin-top: 10px;
+  width: 100%;
 
   &__title {
     text-transform: uppercase;
@@ -12,9 +13,10 @@
     align-items: center;
     justify-content: space-between;
     gap: 10px;
+    width: 100%;
 
     .level__progressBar {
-      width: 110px;
+      width: 80%;
       height: 5px;
       border-radius: 5px;
       background: $primary-light;

@@ -17,6 +17,7 @@ const submitBtn = document.querySelector('.btn__submit')
 const mythicCard = document.querySelector('.mythic__card')
 const complexityTitle = document.querySelector('.complexity__title')
 const complexityLevel = document.querySelector('.level__progress')
+const ancientStageCards = document.querySelectorAll('.ancientStageCard')
 
 const domNodes = {
   body,
@@ -33,6 +34,7 @@ const domNodes = {
   mythicCard,
   complexityTitle,
   complexityLevel,
+  ancientStageCards,
 }
 
 export { domNodes }

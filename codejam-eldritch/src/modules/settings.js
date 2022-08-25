@@ -13,6 +13,8 @@ const {
   mainInner,
 } = domNodes
 
+// ANCIENT SETTINGS
+
 async function loadAncientSettings() {
   for (let ancient of ancientsData) {
     //create nodes
@@ -49,35 +51,70 @@ async function createAncientLabel(ancient) {
   return label
 }
 
+// COMPLEXITY SETTINGS
+
+async function loadComplexitySettings() {
+  for (let complexity of difficulties) {
+    //create nodes
+    const complexityInput = await createComplexityInput(complexity)
+    const complexityLabel = await createComplexityLabel(complexity)
+    //add nodes
+    complexitySettings.appendChild(complexityInput)
+    complexitySettings.appendChild(complexityLabel)
+  }
+}
+
+async function createComplexityInput(complexity) {
+  const input = document.createElement('input')
+  input.setAttribute('type', 'radio')
+  input.setAttribute('name', `complexity`)
+  input.setAttribute('id', `${complexity.id}`)
+  input.setAttribute('value', `${complexity.id}`)
+  return input
+}
+
+async function createComplexityLabel(complexity) {
+  // create label
+  const label = document.createElement('label')
+  label.setAttribute('for', `${complexity.id}`)
+
+  //add text
+  label.textContent = complexity.name
+
+  return label
+}
+
+// BASIC
+
 function showSettings() {
   settings.classList.add('visible')
 }
 
 function isFormValid() {
-  const { ancientValue, complexityValue } = getData()
+  const { ancientId, complexityValue } = getData()
 
-  if (ancientValue && complexityValue) {
+  if (ancientId && complexityValue) {
     submitBtn.removeAttribute('disabled')
     submitBtn.removeAttribute('title')
   }
-  console.log(ancientValue, complexityValue)
+  console.log(ancientId, complexityValue)
 }
 
 function getData() {
-  const ancientValue =
+  const ancientId =
     document.querySelector('input[name="ancient"]:checked')?.value || false
 
   const complexityValue =
     document.querySelector('input[name="complexity"]:checked')?.value || false
 
-  return { ancientValue, complexityValue }
+  return { ancientId, complexityValue }
 }
 
 function dackShuffleHadnler(e) {
   e.preventDefault()
-  const { ancientValue, complexityValue } = getData()
+  const { ancientId, complexityValue } = getData()
 
-  loadMythicDeck(ancientValue, complexityValue)
+  loadMythicDeck(ancientId, complexityValue)
   // console.log(ancientValue, complexityValue)
 
   settings.classList.remove('visible')
@@ -87,4 +124,4 @@ function dackShuffleHadnler(e) {
 settingsForm.addEventListener('change', isFormValid)
 settingsForm.addEventListener('submit', dackShuffleHadnler)
 
-export { showSettings, loadAncientSettings }
+export { showSettings, loadAncientSettings, loadComplexitySettings }

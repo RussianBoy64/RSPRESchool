@@ -1,16 +1,16 @@
-import { brownCards, blueCards, greenCards } from '../data/mythicCards/index'
 import * as cardsData from '../data/mythicCards/index'
 
 class Deck {
-  constructor(complexity) {
-    // this.complexity = complexity || null
-    // this.green = 0
-    // this.brown = 0
-    // this.blue = 0
-    this.stages = {
+  constructor() {
+    this.stagesLength = {
       firstStage: 0,
       secondStage: 0,
       thirdStage: 0,
+    }
+    this.stages = {
+      firstStage: [],
+      secondStage: [],
+      thirdStage: [],
     }
     this.colorDecksLength = {
       greenCards: 0,
@@ -25,7 +25,7 @@ class Deck {
   }
 
   reset() {
-    this.stages = {
+    this.stagesLength = {
       firstStage: 0,
       secondStage: 0,
       thirdStage: 0,
@@ -67,14 +67,16 @@ class Deck {
 
     // filter mythic cards by complexity
     this[complexity]()
+
+    this.setStagesDecks(ancient)
   }
 
   setDeckStageAndColorLength(ancient) {
     // get number of cards for each stage and each color
-    for (let stage in this.stages) {
+    for (let stage in this.stagesLength) {
       for (let colorCards in ancient[stage]) {
         // count number of cards for each stage
-        this.stages[stage] += ancient[stage][colorCards]
+        this.stagesLength[stage] += ancient[stage][colorCards]
         // count number of cards of each color
         this.colorDecksLength[colorCards] += ancient[stage][colorCards]
       }
@@ -199,6 +201,24 @@ class Deck {
       0,
       this.colorDecksLength[colorDeck]
     )
+  }
+
+  setStagesDecks(ancient) {
+    for (let stage in this.stages) {
+      for (let colorDeck in ancient[stage]) {
+        const cards = this.colorDecks[colorDeck].splice(
+          0,
+          ancient[stage][colorDeck]
+        )
+
+        if (cards.length) {
+          this.stages[stage] = this.stages[stage].concat(cards)
+        }
+      }
+
+      //shuffle stage
+      this.stages[stage] = this.shuffle(this.stages[stage])
+    }
   }
 }
 

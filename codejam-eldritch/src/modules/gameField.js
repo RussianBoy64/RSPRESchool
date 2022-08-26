@@ -21,9 +21,7 @@ function loadGameField(ancientId, complexity) {
   setAncientStageCards(ancient, ancientStageCards)
 
   //prepair deck
-  deck.setComplexity(complexity)
-  deck.setCardValueForColors(ancient)
-  deck.getDeck()
+  deck.createDeck(ancient, complexity)
 
   console.log(deck)
 }

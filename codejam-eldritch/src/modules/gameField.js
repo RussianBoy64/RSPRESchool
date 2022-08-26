@@ -1,28 +1,31 @@
 import { domNodes } from './domNodes'
+import { deck } from '../index'
 import {
   getAncientDataById,
   getComplexityLevelById,
   setAncientStageCards,
 } from './helpers'
 
-const {
-  mythicCard,
-  complexityTitle,
-  complexityLevel,
-  ancientStageCards,
-  gameStageCards,
-} = domNodes
+const { mythicCard, complexityTitle, complexityLevel, ancientStageCards } =
+  domNodes
 
 function loadGameField(ancientId, complexity) {
   const ancient = getAncientDataById(ancientId)
   const level = getComplexityLevelById(complexity)
 
+  // set ancientCard content
   mythicCard.src = ancient.cardFace
   complexityTitle.textContent = complexity
   complexityLevel.style.width = `${level * 20}%`
 
   setAncientStageCards(ancient, ancientStageCards)
-  setAncientStageCards(ancient, gameStageCards)
+
+  //prepair deck
+  deck.setComplexity(complexity)
+  deck.setCardValueForColors(ancient)
+  deck.getDeck()
+
+  console.log(deck)
 }
 
 export { loadGameField }

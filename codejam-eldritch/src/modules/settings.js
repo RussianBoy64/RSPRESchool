@@ -113,6 +113,7 @@ function dackShuffleHadnler(e) {
   e.preventDefault()
   const { ancientId, complexityId } = getData()
 
+  // load gameField
   loadGameField(ancientId, complexityId)
 
   settings.classList.remove('visible')

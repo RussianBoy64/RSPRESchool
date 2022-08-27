@@ -19,7 +19,13 @@ const complexityTitle = document.querySelector('.complexity__title')
 const complexityLevel = document.querySelector('.level__progress')
 const ancientStageCards = document.querySelectorAll('.ancientStageCard')
 
-// GAME FIELD
+// GAME DECK
+const gameDeckBtn = document.querySelector('.deck-btn')
+const gameDeckBtnText = document.querySelector('.deck-btn__text')
+const tshirt = document.querySelector('.tshirt')
+
+// NEW GAME DECK
+const newGameBtn = document.querySelector('.newGame-btn')
 
 const domNodes = {
   body,
@@ -37,6 +43,10 @@ const domNodes = {
   complexityTitle,
   complexityLevel,
   ancientStageCards,
+  gameDeckBtn,
+  gameDeckBtnText,
+  tshirt,
+  newGameBtn,
 }
 
 export { domNodes }

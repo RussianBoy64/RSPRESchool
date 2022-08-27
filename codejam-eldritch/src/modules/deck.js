@@ -22,6 +22,8 @@ class Deck {
       brownCards: [],
       blueCards: [],
     }
+    this.currentStage = 1
+    this.gameDeck = []
   }
 
   reset() {
@@ -29,6 +31,11 @@ class Deck {
       firstStage: 0,
       secondStage: 0,
       thirdStage: 0,
+    }
+    this.stages = {
+      firstStage: [],
+      secondStage: [],
+      thirdStage: [],
     }
     this.colorDecksLength = {
       greenCards: 0,
@@ -40,24 +47,9 @@ class Deck {
       brownCards: [],
       blueCards: [],
     }
+    this.currentStage = 1
+    this.gameDeck = []
   }
-
-  // setComplexity(complexity) {
-  //   this.complexity = complexity
-  // }
-
-  // setCardValueForColors(ancient) {
-  //   const { firstStage, secondStage, thirdStage } = ancient
-
-  //   this.green =
-  //     firstStage.greenCards + secondStage.greenCards + thirdStage.greenCards
-
-  //   this.brown =
-  //     firstStage.brownCards + secondStage.brownCards + thirdStage.brownCards
-
-  //   this.blue =
-  //     firstStage.blueCards + secondStage.blueCards + thirdStage.blueCards
-  // }
 
   createDeck(ancient, complexity) {
     // get number of card for each color
@@ -69,6 +61,7 @@ class Deck {
     this[complexity]()
 
     this.setStagesDecks(ancient)
+    this.setGameDeck()
   }
 
   setDeckStageAndColorLength(ancient) {
@@ -84,8 +77,6 @@ class Deck {
   }
 
   veryEasy() {
-    console.log('very-easy')
-
     for (let colorDeck in this.colorDecks) {
       // shuffle cards
       let easyCards = cardsData[colorDeck].filter(
@@ -111,8 +102,6 @@ class Deck {
   }
 
   easy() {
-    console.log('easy')
-
     for (let colorDeck in this.colorDecks) {
       //shuffle cards
       const filterdCards = cardsData[colorDeck].filter(
@@ -127,8 +116,6 @@ class Deck {
   }
 
   normal() {
-    console.log('normal')
-
     for (let colorDeck in this.colorDecks) {
       //shuffle cards
       const shuffledArr = this.shuffle(cardsData[colorDeck])
@@ -139,8 +126,6 @@ class Deck {
   }
 
   hard() {
-    console.log('hard')
-
     for (let colorDeck in this.colorDecks) {
       //shuffle cards
       const filterdCards = cardsData[colorDeck].filter(
@@ -155,8 +140,6 @@ class Deck {
   }
 
   veryHard() {
-    console.log('veryHard')
-
     for (let colorDeck in this.colorDecks) {
       // shuffle cards
       let hardCards = cardsData[colorDeck].filter(
@@ -182,7 +165,6 @@ class Deck {
   }
 
   shuffle(cardsArr) {
-    console.log('shuffle')
     let idx = null
     let temp = null
     let arrLength = cardsArr.length - 1
@@ -218,6 +200,36 @@ class Deck {
 
       //shuffle stage
       this.stages[stage] = this.shuffle(this.stages[stage])
+    }
+  }
+
+  setGameDeck() {
+    this.gameDeck = this.stages.thirdStage.concat(
+      this.stages.secondStage,
+      this.stages.firstStage
+    )
+  }
+
+  getCard() {
+    this.setCurrentStage()
+    return this.gameDeck.pop()
+  }
+
+  setCurrentStage() {
+    if (this.currentStage === 1) {
+      this.stagesLength.firstStage > 0
+        ? this.stagesLength.firstStage--
+        : this.currentStage++
+    }
+    if (this.currentStage === 2) {
+      this.stagesLength.secondStage > 0
+        ? this.stagesLength.secondStage--
+        : this.currentStage++
+    }
+    if (this.currentStage === 3) {
+      this.stagesLength.thirdStage > 0
+        ? this.stagesLength.thirdStage--
+        : (this.stagesLength.thirdStage = 0)
     }
   }
 }

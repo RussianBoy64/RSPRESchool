@@ -109,12 +109,12 @@ function getData() {
   return { ancientId, complexityId }
 }
 
-function dackShuffleHadnler(e) {
+async function dackShuffleHadnler(e) {
   e.preventDefault()
   const { ancientId, complexityId } = getData()
 
   // load gameField
-  loadGameField(ancientId, complexityId)
+  await loadGameField(ancientId, complexityId)
 
   settings.classList.remove('visible')
   mainInner.classList.add('visible')

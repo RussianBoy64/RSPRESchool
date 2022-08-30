@@ -90,7 +90,6 @@
     color: $primary-accent;
     font-size: 0.8em;
     border-radius: 10px;
-    background-color: hsla(340deg, 69%, 10%, 0.7);
     @extend %hidden;
     @extend %transitionSlow;
   }

@@ -6,7 +6,7 @@ function getAncientDataById(ancientId) {
 }
 
 function getComplexityLevelById(complexityId) {
-  return difficulties.findIndex((level) => level.id === complexityId) + 1
+  return difficulties.findIndex((level) => level.id === complexityId)
 }
 
 function setAncientStageCards(ancient, ancientStageCards) {

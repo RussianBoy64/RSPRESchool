@@ -23,8 +23,8 @@ async function loadGameField(ancientId, complexity) {
   })
 
   // set ancientCard content
-  complexityTitle.textContent = difficulties[level - 1].name
-  complexityLevel.style.width = `${level * 20}%`
+  complexityTitle.textContent = difficulties[level].name
+  complexityLevel.style.width = `${level * 25}%`
 
   setAncientStageCards(ancient, ancientStageCards)
 
